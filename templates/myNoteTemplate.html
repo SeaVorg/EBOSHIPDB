@@ -1,0 +1,15 @@
+<ul class="listItems">
+    {{#results}}
+    <li class="item" data-id="{{objectId}}">
+        <a href="#">
+            <h2 id="title">{{title}}</h2>
+            <p id="text">{{text}}</p>
+            <div class="author" title="author">{{author}}</div>
+            <div class="deadline" title="deadline">{{deadline}}</div>
+        </a>
+        <button onclick="location.href='#/myNotes/edit/id={{objectId}}&title={{title}}&text={{text}}&author={{author}}&deadline={{deadline}}'" class="edit">Edit</button>
+        <button onclick="location.href='#/myNotes/delete/id={{objectId}}&title={{title}}&text={{text}}&author={{author}}&deadline={{deadline}}'" class="delete">Delete</button>
+    </li>
+    {{/results}}
+</ul>
+<div id="pagination"></div>
