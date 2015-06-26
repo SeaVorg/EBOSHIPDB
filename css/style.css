@@ -88,10 +88,6 @@ text-align:left;
 border-width:1px;
 border-color:red;
 */
-.container{
-margin-top:10px;
-
-}
 
 .big-button {
 
@@ -212,6 +208,10 @@ margin-top:10px;
 
   border-spacing:50px 80px;
   border-collapse: separate;
+}
+
+.main-content article{
+margin: 5px 5px 5px 5px;
 }
 
 
