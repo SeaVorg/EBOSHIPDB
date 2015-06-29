@@ -249,6 +249,12 @@ user-select: none;
   position: relative;
   top: 10px;
 }
+.lsubling{
+position:absolute;
+left:10%;
+top:20%;
+}
+
 #back {
     position: fixed;
     left:0px;
