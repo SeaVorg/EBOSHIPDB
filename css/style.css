@@ -254,6 +254,14 @@ user-select: none;
 position:absolute;
 left:10%;
 top:20%;
+text-align:left;
+}
+.rsubling{
+position:absolute;
+right:10%;
+top:20%;
+text-align:left;
+
 }
 
 #back {

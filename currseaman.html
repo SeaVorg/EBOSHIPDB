@@ -23,10 +23,10 @@
 			</nav>
 		</header>
 		<div class="main-content">
-			
+			<div class="lsubling">
 			<article>
-				<label>ID </label><input type="text" size="1" maxlength="4">
-				Seaman:<input type="text">
+				<label>ID </label><input type="text" size="1" maxlength="4" readonly>
+				Seaman:<input type="text" readonly>
 				<label>Rank</label>
 				<select>
 				<option value="3RD ENG">3rd eng</option>
@@ -58,9 +58,10 @@
 				</select>
 			</article>
 			<article>
-				<label>Date of birth:</label> <input type="date"><br>
-			</article>	
+				<img src="img/nopic.jpg">
+			</article>
 			<article>
+				<label>Date of birth:</label> <input type="date">
 				<label>Birth place:</label><input type="text"><br>
 			</article>
 			<article>
@@ -81,23 +82,16 @@
 			<article>
 				<label>Recr.Agent:<label><input type="text"><br>
 			</article>
-			<article>	
-				<label>Seniority:</label><input type="text"><br>
-			</article>
 			<article>
-				<label>fm:</label><input type="text"><br>
+				<label>Notes</label><textarea rows="10" cols="50"></textarea><br>
 			</article>
+		</div>
+		<div class="rsubling">
 			<article>
-				<label>Notes</label><textarea rows="10" cols="16"></textarea><br>
-			</article>
-			<article>
-				<label>USA Visa</label><input type="radio">
+				<label>USA Visa</label><input type="checkbox">
 			</article>
 			<article>
 				<label>Exp.Date:</label><input type="date"><br>
-			</article>
-			<article>
-				<label>Green list</label><input type="checkbox"><br>
 			</article>
 			<article>
 				<label>Modify</label><input type="date"><br>
@@ -121,31 +115,36 @@
 				<label>Exp. date</label><input type="date"><br>
 			</article>
 			<article>
-				<label>Malta license</label><input type="text"><br>
+				<label>Malta:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
-				<label>S.V.G. license</label><input type="text"><br>
+				<label>S.V.G.:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
-				<label>Bahamas license</label><input type="text"><br>
+				<label>Bahamas:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
-				<label>Cayman license</label><input type="text"><br>
+				<label>Cayman:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
-				<label>Panama license</label><input type="text"><br>
+				<label>Panama:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
-				<label>Gibraltar license</label><input type="text"><br>
+				<label>Gibraltar:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
-				<label>National license</label><input type="text"><input type="date"><br>
+				<label>National license:</label><input type="text"><input type="date"><br>
 			</article>
 			<article>
 				<label>SSO Cert.</label><input type="checkbox">
 
 				<label>issue date</label><input type="date"><br>
 			</article>
+			<article>
+				<input type="submit" value="Save">
+			</article>
+		</div>
+
 			<div id ="back">
 				<a href="seamened.html"><img src="img/blue_arrow_cut.png"></a>
 			</div>
