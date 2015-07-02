@@ -49,8 +49,10 @@ app.seamanViews = (function() {
         console.log("in load ranks view");
         $.get('templates/ranksStuff.html', function (template) {
             var outHtml = Mustache.render(template, data);
-            console.log(outHtml);
+            //console.log(outHtml);
             $(selector).html(outHtml);
+        }).then(function(){
+            $(selector)[0].value=app.seamanRank;
         });
     }
 
@@ -86,20 +88,12 @@ app.seamanViews = (function() {
     }
 
     function editSeamanView (selector, data) {
-        $.get('templates/editSeaman.html', function (template) {
+        $.get('templates/editSeamanTemplate.html', function (template) {
             var outHtml = Mustache.render(template, data);
             $(selector).html(outHtml);
         }).then(function() {
             $('#editSeamanButton').click(function() {
-                var title = $('#title').val();
-                var text = $('#text').val();
-                var deadline = $('#deadline').val();
-
-                $.sammy(function() {
-                    this.trigger('editSeaman', {id:data.id, title: title, text: text, deadline: deadline});
-                    
-                });
-
+               console.log(" editing ");
                 return false;
             })
         }).done();

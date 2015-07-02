@@ -58,10 +58,18 @@ var app = app || {};
 
     var selector = '#ranks';
     //seamanController.listAllSeamans(selector);
-    seamanController.listRanks(selector);
+   
 
     selector = '#container';
     var as = app.getParam("who");
     console.log(as);
-    if(as!=null) console.log("shoudl");
+
+    selector = '#content';
+    if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){
+     selector = '#ranks';
+     seamanController.listRanks(selector).then(function(){
+        $(selector)[0].value=app.seamanRank;
+    });
+    });
+    
 }());

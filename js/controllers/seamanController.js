@@ -11,24 +11,18 @@ app.seamanController = (function () {
         this.viewBag.addSeaman.addSeamanView(selector);
     };
 
-    SeamanController.prototype.loadSeamanView = function(selector, urlParams, action) {
-        var data = urlParams.split('&');
-        var outData = {
-            id : data[0].split('id=')[1],
-            title : data[1].split('title=')[1],
-            text : data[2].split('text=')[1],
-            author : data[3].split('author=')[1],
-            deadline : data[4].split('deadline=')[1]
-        };
-
-        //console.log("in load seaman view,");
-        //console.log(outData);
-
-        if(action === 'delete') {
-            this.viewBag.deleteSeaman.deleteSeamanView(selector, outData);
-        } else {
-            this.viewBag.editSeaman.editSeamanView(selector, outData);
-        }
+    SeamanController.prototype.loadSeamanView = function(selector, id) {
+       var _this = this;
+        console.log("controller mofo called load seaman");
+        return this.model.listAllSeamansId(id)
+            .then(function (data) {
+                console.log(data.results);
+                app.seamanRank = data.results[0].Rank;
+                console.log('"'+app.seamanRank+'"');
+                _this.viewBag.editSeaman.editSeamanView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
     };
 
     SeamanController.prototype.listAllTodaySeamans = function (selector, urlParams) {
