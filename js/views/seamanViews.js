@@ -41,8 +41,10 @@ app.seamanViews = (function() {
     }
 
     function loadSeamansView (selector, data) {
+        console.log("in load seaman view");
         $.get('templates/mySeamanTemplate.html', function (template) {
             var outHtml = Mustache.render(template, data);
+            console.log(outHtml);
             $(selector).html(outHtml);
         });
 
