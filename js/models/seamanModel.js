@@ -2,19 +2,20 @@ var app = app || {};
 
 app.seamanModel = (function() {
     function SeamanModel(baseUrl, requester, headers) {
-        this.serviceUrl = baseUrl + 'classes/Note/';
+        this.serviceUrl = baseUrl + 'classes/Seamen/';
         this.requester = requester;
         this.headers = headers;
     }
 
 
-    SeamanModel.prototype.listAllSeaman = function(page) {
+    SeamanModel.prototype.listAllSeamans = function() {
+        console.log(" in model ");
        return this.requester.get(this.serviceUrl, this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
     SeamanModel.prototype.addSeaman = function(title, text, deadline) {
-        //console.log("add note called");
+        //console.log("add seaman called");
         var userId = sessionStorage['userId'];
         var author = sessionStorage['fullName'];
         var data = {
@@ -28,12 +29,12 @@ app.seamanModel = (function() {
         };
 
         data.ACL[userId] = {"write":true,"read":true};
-        //console.log("adding note with data ");
+        //console.log("adding seaman with data ");
         //console.log(data);
         return this.requester.post(this.serviceUrl, this.headers.getHeaders(true), data);
     };
 
-    SeamanModel.prototype.editNote = function(noteId, title, text, deadline) {
+    SeamanModel.prototype.editSeaman = function(seamanId, title, text, deadline) {
         // we dont change author
         var data = {
             title : title,
@@ -41,11 +42,11 @@ app.seamanModel = (function() {
             deadline : deadline
         };
 
-        return this.requester.put(this.serviceUrl + noteId, this.headers.getHeaders(true), data);
+        return this.requester.put(this.serviceUrl + seamanId, this.headers.getHeaders(true), data);
     };
 
-    SeamanModel.prototype.deleteNote = function(noteId) {
-        return this.requester.remove(this.serviceUrl + noteId, this.headers.getHeaders(true));
+    SeamanModel.prototype.deleteSeaman = function(seamanId) {
+        return this.requester.remove(this.serviceUrl + seamanId, this.headers.getHeaders(true));
     };
 
     return {

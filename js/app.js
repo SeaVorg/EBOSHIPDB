@@ -40,13 +40,16 @@ var app = app || {};
     var headers = app.headers.load(appId, restAPI);
     var requester = app.requester.load();
     var userModel = app.userModel.load(baseUrl, requester, headers);
-    var noteModel = app.noteModel.load(baseUrl, requester, headers);
+    var seamanModel = app.seamanModel.load(baseUrl, requester, headers);
 
-    var homeViews = app.homeViews.load();
-    var userViews = app.userViews.load();
-    var noteViews = app.noteViews.load();
+    //var homeViews = app.homeViews.load();
+    //var userViews = app.userViews.load();
+    var seamanViews = app.seamanViews.load();
 
-    var userController = app.userController.load(userModel, userViews);
-    var noteController = app.noteController.load(noteModel, noteViews);
-    var homeController = app.homeController.load(homeViews);
+    //var userController = app.userController.load(userModel, userViews);
+    var seamanController = app.seamanController.load(seamanModel, seamanViews);
+    //var homeController = app.homeController.load(homeViews);
+
+    var selector = '#container';
+    seamanController.listAllSeamans(selector);
 }());
