@@ -11,6 +11,11 @@ text-align: center;
 vertical-align: middle;
 }
 
+p a img{
+  width:30px;
+  height:30px;
+
+}
 
 .main-header img{
 margin-bottom: 0px;
@@ -256,6 +261,24 @@ left:10%;
 top:20%;
 text-align:left;
 }
+.back-to-top {
+background: none;
+margin: 0;
+position: fixed;
+bottom: 0;
+left: 0;
+width: 70px;
+height: 70px;
+z-index: 100;
+display: none;
+text-decoration: none;
+color: #ffffff;
+}
+
+.back-to-top img {
+  width:70px;
+  height:70px;
+}
 .rsubling{
 position:absolute;
 right:10%;
@@ -268,6 +291,7 @@ padding:1px 1px 1px 1px;
 border-spacing: 0px;
 background-color:grey;
 color:white;
+ font-family: 'Sansita One';
 }
 #results a{
 color:white;
@@ -279,6 +303,7 @@ color:white;
 #results img{
 width:30px;
 height:30px;
+
 
 }
 
@@ -295,10 +320,8 @@ height:30px;
 }
 
 #back img{
-  width:175px;
+  width:100px;
   height:100px;
-
-
 }
 @keyframes fadein {
     from { opacity: 0; }
