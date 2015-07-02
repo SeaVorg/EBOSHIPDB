@@ -1,18 +1,24 @@
-<p><a href="addseaman.html" class="button">Add Seaman</a></p>
-<table id="phones">
+<p><a href="addseaman.html" class="button"><img src="./img/add_user.png"></a></p>
+
+<table id="results">
     <tr>
         <th>Action</th>
         <th>Name</th>
         <th>Rank</th>
+        <th>Nationality</th>
+        <th>Birthplace</th>
+        <th>Available</th>
     </tr>
     {{#results}}
     <tr>
         <td>
-            <a href="#/edit/id={{objectId}}" class="link">Edit</a>
-            <a href="#/delete/id={{objectId}}" class="link">Delete</a>
+            <a href="#/edit/id={{objectId}}" class="link"><img src="./img/edit.png"></a>
+            <a href="#/delete/id={{objectId}}" class="link"><img src="./img/delete.png"></a>
         </td>
         <td>{{Name}}</td>
         <td>{{Rank}}</td>
+        <td>{{Nationality}}</td>
+        <td>{{Birthplace}}</td>
     </tr>
     {{/results}}
 </table>

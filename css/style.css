@@ -261,6 +261,24 @@ position:absolute;
 right:10%;
 top:20%;
 text-align:left;
+}
+
+#results{
+padding:1px 1px 1px 1px;
+border-spacing: 0px;
+background-color:grey;
+color:white;
+}
+#results a{
+color:white;
+}
+#results  th{
+  background-color:darkgrey;
+  padding:5px 5px 5px 5px;
+}
+#results img{
+width:30px;
+height:30px;
 
 }
 
