@@ -123,10 +123,10 @@ app.seamanController = (function () {
     SeamanController.prototype.deleteSeaman = function (seamanId) {
         return this.model.deleteSeaman(seamanId)
                     .then(function() {
-                        window.location.replace('#/mySeamans/');
+                        //window.location.replace('#/mySeamans/');
                         app.success_msg("Successfully deleted seaman!");
                     }, function(error) {
-                        window.location.replace('#/mySeamans/');
+                       // window.location.replace('#/mySeamans/');
                         app.error_msg(error.responseJSON.error);
                     })
     };

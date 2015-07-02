@@ -5,6 +5,8 @@ var app = app || {};
     var restAPI = 'C7MXpLQzn1CLA8Io2y2GbCJA1XEhnTLALc7qMYVY';
     var baseUrl = 'https://api.parse.com/1/';
 
+
+
     app.shitbtn = function(name)
     {
         window.location.search='?who='+$('#search')[0].value;
@@ -61,9 +63,16 @@ var app = app || {};
     var seamanController = app.seamanController.load(seamanModel, seamanViews);
     //var homeController = app.homeController.load(homeViews);
 
+    app.seaController = seamanController;
+
     var selector = '#container';
     var as = app.getParam("who");
     console.log(as);
     if(as!=null) seamanController.listAllSeamansName(selector, as);
     else seamanController.listAllSeamans(selector);
+
+    app.deleteSeaman(objectId)
+    {
+        app.seaController.deleteSeaman(objectId);
+    }
 }());

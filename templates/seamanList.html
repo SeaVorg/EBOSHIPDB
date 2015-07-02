@@ -12,8 +12,8 @@
     {{#results}}
     <tr>
         <td>
-            <a href="#/edit/id={{objectId}}" class="link"><img src="./img/edit.png"></a>
-            <a href="#/delete/id={{objectId}}" class="link"><img src="./img/delete.png"></a>
+            <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/edit.png"></a>
+            <a href="#" class="link" onclick="app.deleteSeaman({{objectId}})"><img src="./img/delete.png"></a>
         </td>
         <td>{{Name}}</td>
         <td>{{Rank}}</td>
