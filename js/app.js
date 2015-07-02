@@ -5,8 +5,15 @@ var app = app || {};
     var restAPI = 'C7MXpLQzn1CLA8Io2y2GbCJA1XEhnTLALc7qMYVY';
     var baseUrl = 'https://api.parse.com/1/';
 
+    app.shitbtn = function(name)
+    {
+        window.location.search='?who='+$('#search')[0].value;
+    }
+
     app.getParam = function (name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+        return decodeURIComponent(
+            (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20')
+            )||null
     }
 
     app.error_msg = function(text){
@@ -57,5 +64,6 @@ var app = app || {};
     var selector = '#container';
     var as = app.getParam("who");
     console.log(as);
-    seamanController.listAllSeamans(selector);
+    if(as!=null) seamanController.listAllSeamansName(selector, as);
+    else seamanController.listAllSeamans(selector);
 }());

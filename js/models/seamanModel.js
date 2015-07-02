@@ -18,6 +18,11 @@ app.seamanModel = (function() {
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
+    SeamanModel.prototype.listAllSeamansName = function(name ) {
+        return this.requester.get(this.serviceUrl , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
     SeamanModel.prototype.addSeaman = function(title, text, deadline) {
         //console.log("add seaman called");
         var userId = sessionStorage['userId'];

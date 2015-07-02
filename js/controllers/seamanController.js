@@ -52,9 +52,36 @@ app.seamanController = (function () {
         console.log("controller mofo called list all ranks");
         return this.model.listRanks()
             .then(function (data) {
-                console.log('asd');
-                console.log(data);
                 _this.viewBag.listRanks.loadRanksView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listAllSeamansName = function (selector, name) {
+        var _this = this;
+        return this.model.listAllSeamans()
+            .then(function (data) {
+                console.log(data);
+
+                var i;
+                for(i=0;i<data.results.length;i++)
+                {
+                    console.log(i);
+                    
+                    if(data.results[i].Name.toLowerCase().indexOf(name.toLowerCase()) > -1){
+                        console.log('asd');
+                    }
+                    else {
+                        console.log("deleting");
+                        data.results.splice(i,1);
+                        i--;
+                    
+                    }
+                }
+              
+                
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })
@@ -65,8 +92,7 @@ app.seamanController = (function () {
         console.log("controller mofo called list all seamans");
         return this.model.listAllSeamans()
             .then(function (data) {
-                console.log('asd');
-                console.log(data);
+                
                 _this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
