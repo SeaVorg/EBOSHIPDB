@@ -2,7 +2,7 @@ var app = app || {};
 
 app.seamanModel = (function() {
     function SeamanModel(baseUrl, requester, headers) {
-        this.serviceUrl = baseUrl + 'classes/Seamen/';
+        this.serviceUrl = baseUrl + 'classes/Seaman/';
         this.ranksUrl = baseUrl + 'classes/Ranks/';
         this.requester = requester;
         this.headers = headers;

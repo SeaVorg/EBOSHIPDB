@@ -5,6 +5,10 @@ var app = app || {};
     var restAPI = 'C7MXpLQzn1CLA8Io2y2GbCJA1XEhnTLALc7qMYVY';
     var baseUrl = 'https://api.parse.com/1/';
 
+    app.getParam = function (name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+    }
+
     app.error_msg = function(text){
         noty({
                 layout: 'top',
@@ -51,5 +55,7 @@ var app = app || {};
     //var homeController = app.homeController.load(homeViews);
 
     var selector = '#container';
+    var as = app.getParam("who");
+    console.log(as);
     seamanController.listAllSeamans(selector);
 }());
