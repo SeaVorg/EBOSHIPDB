@@ -3,11 +3,15 @@ var app = app || {};
 app.seamanModel = (function() {
     function SeamanModel(baseUrl, requester, headers) {
         this.serviceUrl = baseUrl + 'classes/Seamen/';
+        this.ranksUrl = baseUrl + 'classes/Ranks/';
         this.requester = requester;
         this.headers = headers;
     }
 
-
+    SeamanModel.prototype.listRanks = function ()
+    {
+        return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
+    }
     SeamanModel.prototype.listAllSeamans = function() {
         console.log(" in model ");
        return this.requester.get(this.serviceUrl, this.headers.getHeaders(true));

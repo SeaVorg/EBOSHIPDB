@@ -20,6 +20,10 @@ app.seamanViews = (function() {
         this.deleteSeaman = {
             deleteSeamanView: deleteSeamanView
         }
+
+        this.listRanks = {
+            loadRanksView: loadRanksView
+        }
     }
 
     function loadSeamansTodayView ( selector, data, itemsCount, pageId)
@@ -38,6 +42,16 @@ app.seamanViews = (function() {
 
         
 
+    }
+
+    function loadRanksView (selector, data)
+    {
+        console.log("in load ranks view");
+        $.get('templates/ranksStuff.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            console.log(outHtml);
+            $(selector).html(outHtml);
+        });
     }
 
     function loadSeamansView (selector, data) {
