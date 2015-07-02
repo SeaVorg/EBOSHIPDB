@@ -67,12 +67,27 @@ var app = app || {};
 
     var selector = '#container';
     var as = app.getParam("who");
+    app.asz = as;
     console.log(as);
     if(as!=null) seamanController.listAllSeamansName(selector, as);
     else seamanController.listAllSeamans(selector);
 
-    app.deleteSeaman(objectId)
+    app.deleteSeaman = function deleteSeaman(objectId)
     {
-        app.seaController.deleteSeaman(objectId);
+        //console.log("deleting");
+        if(confirm("Are you sure you want to delete?")){ 
+            console.log('deleting');
+            app.seaController.deleteSeaman(objectId);
+            console.log(app.asz);
+            //location.reload();
+            //app.shitbtn(app.asz);
+        }
+    }
+
+    app.reloadz = function ()
+    {
+        $('#container')[0].innerHTML='';
+        if(app.asz!=null ) seamanController.listAllSeamansName(selector, as);
+        else seamanController.listAllSeamans(selector);
     }
 }());

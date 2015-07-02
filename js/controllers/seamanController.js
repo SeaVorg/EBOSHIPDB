@@ -125,6 +125,7 @@ app.seamanController = (function () {
                     .then(function() {
                         //window.location.replace('#/mySeamans/');
                         app.success_msg("Successfully deleted seaman!");
+                        app.reloadz();
                     }, function(error) {
                        // window.location.replace('#/mySeamans/');
                         app.error_msg(error.responseJSON.error);
