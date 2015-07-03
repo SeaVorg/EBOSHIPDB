@@ -261,6 +261,17 @@ left:10%;
 top:20%;
 text-align:left;
 }
+.rsubling{
+position:absolute;
+right:10%;
+top:20%;
+text-align:left;
+}
+.rsubling .lsubling{
+display: inline;
+
+}
+
 .back-to-top {
 background: none;
 margin: 0;
@@ -278,12 +289,6 @@ color: #ffffff;
 .back-to-top img {
   width:70px;
   height:70px;
-}
-.rsubling{
-position:absolute;
-right:10%;
-top:20%;
-text-align:left;
 }
 
 #results{
