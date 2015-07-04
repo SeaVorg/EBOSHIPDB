@@ -301,9 +301,17 @@ color:white;
 #results a{
 color:white;
 }
+#results tr,td{
+  text-align: left;
+}
+#results td{
+  border: 1px solid black;
+
+}
 #results  th{
   background-color:darkgrey;
   padding:5px 5px 5px 5px;
+  text-align: center;
 }
 #results img{
 width:30px;
