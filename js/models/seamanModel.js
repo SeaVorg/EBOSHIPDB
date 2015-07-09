@@ -14,7 +14,7 @@ app.seamanModel = (function() {
     }
     SeamanModel.prototype.listAllSeamans = function() {
         console.log(" in model ");
-       return this.requester.get(this.serviceUrl, this.headers.getHeaders(true));
+       return this.requester.get(this.serviceUrl + '?limit=50&count=50' , this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
@@ -23,6 +23,11 @@ app.seamanModel = (function() {
         return this.requester.get(this.serviceUrl + '?where={"objectId": "' + id + '"}', this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
+
+    SeamanModel.prototype.listAllSeamansAvailable = function()
+    {
+        return this.requester.get(this.serviceUrl + '?where={"Available": "' + 'true' + '"}&limit=50&count=50', this.headers.getHeaders(true));
+    }
 
     SeamanModel.prototype.addSeaman = function(title, text, deadline) {
         //console.log("add seaman called");
