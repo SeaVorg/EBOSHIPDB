@@ -83,7 +83,7 @@ app.seamanController = (function () {
 
     SeamanController.prototype.listAllSeamansAvailable = function (selector) {
         var _this = this;
-        console.log("controller mofo called list all seamans");
+        console.log("controller mofo called list all seamans available");
         return this.model.listAllSeamansAvailable()
             .then(function (data) {
                 

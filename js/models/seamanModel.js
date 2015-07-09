@@ -26,7 +26,8 @@ app.seamanModel = (function() {
 
     SeamanModel.prototype.listAllSeamansAvailable = function()
     {
-        return this.requester.get(this.serviceUrl + '?where={"Available": "' + 'true' + '"}&limit=50&count=50', this.headers.getHeaders(true));
+        console.log("available check");
+        return this.requester.get(this.serviceUrl + '?where={"Available": true }&limit=50&count=50', this.headers.getHeaders(true));
     }
 
     SeamanModel.prototype.addSeaman = function(title, text, deadline) {
