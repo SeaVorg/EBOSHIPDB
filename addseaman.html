@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Available/Exceeding</title>
+	</head>
+	<body>
+		<header class="main-header">
+			<nav>
+				<ul>
+					<li>
+						<a class="big-button" href="seamened.html">
+   							<img src="img/ship_white.png">Embarking/Disembarking
+  						</a>
+					</li>
+					<li>
+  						<a class="big-button" href="avex.html">
+   							<img src="img/rul_white.png">Available/Exceeding
+  						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="main-content">
+			<div id='content'>
+			<div class="lsubling">
+			<article>
+				<label>ID </label><input type="text" size="1" maxlength="4"  id="Seaman" readonly >
+				Seaman:<input type="text" id="Name">
+				<label>Rank</label>
+				<select id="ranks" >
+				</select>
+			</article>
+			<article>
+				<img src="img/nopic.jpg">
+			</article>
+			<article>
+				<label>Date of birth:</label> <input type="text"  id="Birth_date">
+				<label>Birth place:</label><input type="text" id="Birth_place"><br>
+			</article>
+			<article>
+				<label>Nationality:</label><input type="text"  id="nationality"><br>
+			</article>
+			<article>
+				<label>E-mail:</label><input type="text"  id="Email"><br>
+			</article>
+			<article>
+				<label>Address:</label><input type="text"  id="Address"><br>
+			</article>
+			<article>
+				<label>City:</label><input type="text"  id="City"><br>
+			</article>
+			<article>
+				<label>Telephone:</label><input type="text" id="Telephone"><br>
+			</article>
+			<article>
+				<label>Recr.Agent:<label><input type="text"  id="Recruiting_agent"><br>
+			</article>
+			<article>
+				<label>Notes</label><textarea rows="10" cols="50"  id="Notes"></textarea><br>
+			</article>
+		</div>
+		<div class="rsubling">
+			<article>
+				<label>USA Visa</label><input type="checkbox">
+			</article>
+			<article>
+				<label>Exp.Date:</label><input type="text"  id="USA_visa_expiration"><br>
+			</article>
+			<article>
+				<label>Modify</label><input type="text" id="Rank_modify"><br>
+			</article>
+			<article>
+				<label>Applic. on date</label><input type="text"  id="Application_date"><br>
+			</article>
+			<article>
+				<label>CRA valid till:</label><input type="text"  id="CRA_expiration"><br>
+			</article>
+			<article>
+				<label>Seaman book:</label><input type="text"  id="Seaman_book_number">
+			</article>
+			<article>
+				<label>Exp. date</label><input type="text"  id="Seaman_book_expiration"><br>
+			</article>
+			<article>
+				<label>Passport:</label><input type="text"  id="Passport_number">
+			</article>
+			<article>
+				<label>Exp. date</label><input type="text"  id="Passport_expiration"><br>
+			</article>
+			<article>
+				<label>Malta:</label><input type="text" ><input type="date"><br>
+			</article>
+			<article>
+				<label>S.V.G.:</label><input type="text" ><input type="date"><br>
+			</article>
+			<article>
+				<label>Bahamas:</label><input type="text" ><input type="date"><br>
+			</article>
+			<article>
+				<label>Cayman:</label><input type="text" ><input type="date"><br>
+			</article>
+			<article>
+				<label>Panama:</label><input type="text" ><input type="date"><br>
+			</article>
+			<article>
+				<label>Gibraltar:</label><input type="text" ><input type="date"><br>
+			</article>
+			<article>
+				<label>National license:</label><input type="text" id="National_license_number"><input type="text" id="National_license_expiration"><br>
+			</article>
+			<article>
+				<label>SSO Cert.</label><input type="checkbox" id="SSOCert">
+
+				<label>issue date</label><input type="date"><br>
+			</article>
+			<article>
+				<input type="submit" value="Add" id="editSeamanButton">
+			</article>
+		</div>
+			</div>
+			<div id ="back">
+				<a href="seamened.html"><img src="img/blue_arrow_cut.png"></a>
+			</div>
+		</div>
+
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/q.js"></script>
+	<script src="js/libs/mustache.min.js"></script>
+	<script src="js/libs/sammy.js"></script>
+	<script src="js/libs/jquery.noty.packaged.js"></script>
+	<script src="js/libs/jquery.simplePagination.js"></script>
+	
+	
+	<script src="js/models/headers.js"></script>
+	<script src="js/models/ajaxRequest.js"></script>
+	
+	<script src="js/models/userModel.js"></script>
+	<script src="js/models/seamanModel.js"></script>
+	
+	<script src="js/views/homeViews.js"></script>
+	<script src="js/views/seamanViews.js"></script>
+	<script src="js/views/userViews.js"></script>
+	
+	<script src="js/controllers/homeController.js"></script>
+	<script src="js/controllers/userController.js"></script>
+	<script src="js/controllers/seamanController.js"></script>
+	
+	<script src="js/app3.js"></script>
+	</body>
+</html>
