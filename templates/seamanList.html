@@ -18,7 +18,11 @@
         <td>{{Rank}}</td>
         <td>{{Nationality}}</td>
         <td>{{Birth_place}}</td>
-        <td>{{Available}}</td>
+        <td><img src="./img/tick.png" id="theimg{{objectId}}"></td>
+        <script>
+        var avail = {{Available}};
+        if(!avail)$("#theimg{{objectId}}")[0].src='./img/cross.png';
+        </script>
     </tr>
     {{/results}}
 </table>
