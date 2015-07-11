@@ -1,18 +1,18 @@
 
 <table id="results">
     <tr>
-        <th>Action</th>
+        <th>Edit</th>
         <th>Name</th>
         <th>Rank</th>
         <th>Nationality</th>
         <th>Birthplace</th>
         <th>Available</th>
+        <th>Delete</th>
     </tr>
     {{#results}}
     <tr>
         <td>
             <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/edit.png"></a>
-            <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
         </td>
         <td>{{Name}}</td>
         <td>{{Rank}}</td>
@@ -23,6 +23,9 @@
         var avail = {{Available}};
         if(!avail)$("#theimg{{objectId}}")[0].src='./img/cross.png';
         </script>
+        <td>
+            <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
+        </td>
     </tr>
     {{/results}}
 </table>
