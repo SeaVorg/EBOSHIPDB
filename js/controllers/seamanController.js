@@ -54,11 +54,37 @@ app.seamanController = (function () {
 
     SeamanController.prototype.listShipsDate = function (selector, data) {
         var _this = this;
+        var oldData=data;
         console.log("controller mofo called list all ships shit");
         return this.model.listShipsDate(data)
             .then(function (data) {
                 console.log(data);
-                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+                var i;
+                var results=[];
+                var s = new Date( Date.parse(oldData.beginDate));
+                var e = new Date( Date.parse(oldData.endDate));
+                
+                var ss= (s.getUTCMonth()+1)+"/"+s.getUTCDate()+"/"+s.getFullYear();
+                var ee =(e.getUTCMonth()+1)+"/"+e.getUTCDate()+"/"+e.getFullYear();
+                
+                var origs = Date.parse(ss);
+                var orige = Date.parse(ee);
+                
+                for(i=0;i<data.results.length;i++)
+                {
+                    var start =  Date.parse(data.results[i].Embarking_date);
+                    var end=  Date.parse(data.results[i].Disembarking_date);
+
+                    if(+origs<=+start&&+orige>=+end) {
+                        _this.model.listSeamansId(data.results[i].SeamanID).then(function(dataz){
+                            results.push(dataz.results[0]);
+                        });
+                        //results.push(data.results[i]);
+                    }
+                        
+                }
+                console.log(results);
+                _this.viewBag.listShipmans.loadShipmansView(selector, results);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })

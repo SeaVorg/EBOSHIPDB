@@ -27,6 +27,22 @@ app.seamanViews = (function() {
         this.listShips = {
             loadShipsView: loadShipsView
         }
+        this.listShipmans = 
+        {
+            loadShipmansView: loadShipmansView
+        }
+    }
+
+    function loadShipmansView(selector, data)
+    {
+        console.log("in load ships from adsasdad view");
+        $.get('templates/shipsDateStuff.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            //console.log(outHtml);
+            $(selector).html(outHtml);
+        }).then(function(){
+            //$(selector)[0].value=app.seamanRank;
+        });
     }
 
     function loadSeamansTodayView ( selector, data, itemsCount, pageId)

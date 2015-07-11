@@ -41,6 +41,12 @@ app.seamanModel = (function() {
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
+    SeamanModel.prototype.listSeamansId = function(id ) {
+        console.log("in modelasz cust" + id);
+        return this.requester.get(this.serviceUrl + '?where={"SeamanId": "' + id + '"}', this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
     SeamanModel.prototype.listAllSeamansId = function(id ) {
         console.log("in modelasz");
         return this.requester.get(this.serviceUrl + '?where={"objectId": "' + id + '"}', this.headers.getHeaders(true));
