@@ -99,6 +99,12 @@ var app = app || {};
                     National_license_number : $('#National_license_number').val(),
                     National_license_expiration : $('#National_license_expiration').val(),
                     Rank : $('#ranks').val(),
+                    Malta_license_number  :$("#Malta_license_number"  ).val(), 
+                    SVG_license_number    :$("#SVG_license_number"    ).val(), 
+                    Bahamas_license_number:$("#Bahamas_license_number").val(), 
+                    Cayman_license_number :$("#Cayman_license_number" ).val(), 
+                    Panama_license_number :$("#Panama_license_number" ).val(), 
+                    Gibraltar_license_number:$("#Gibraltar_license_number").val(),
                     Available : true
                 };
                 console.log(data);
