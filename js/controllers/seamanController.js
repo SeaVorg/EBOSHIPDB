@@ -95,6 +95,18 @@ app.seamanController = (function () {
 
     SeamanController.prototype.listAllSeamansName = function (selector, name) {
         var _this = this;
+        console.log("controller mofo called list all seamans");
+        return this.model.listReallyAllSeamans(name)
+            .then(function (data) {
+                console.log(data);
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listAllSeamansNamez = function (selector, name) {
+        var _this = this;
         return this.model.listAllSeamans()
             .then(function (data) {
                 console.log(data);

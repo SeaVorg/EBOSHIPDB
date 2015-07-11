@@ -12,6 +12,15 @@ app.seamanModel = (function() {
     {
         return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
     }
+    SeamanModel.prototype.listReallyAllSeamans = function ( name )
+    {
+
+       console.log("nwnw");
+       var asd= '?where={"Name" : {"$regex":"'+name+'", "$options" :"i" }}';
+       console.log(asd);
+    return this.requester.get(this.serviceUrl  + asd, this.headers.getHeaders(true));
+     };
+    
     SeamanModel.prototype.listAllSeamans = function() {
         console.log(" in model ");
        return this.requester.get(this.serviceUrl + '?limit=50&count=50' , this.headers.getHeaders(true));
