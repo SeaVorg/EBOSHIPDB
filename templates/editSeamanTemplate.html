@@ -27,6 +27,9 @@
 				<label>City:</label><input type="text" value="{{City}}" id="City"><br>
 			</article>
 			<article>
+				<label>Country:</label><input type="text" value="{{Country}}" id="Country">
+			</article>
+			<article>
 				<label>Telephone:</label><input type="text" value="{{Telephone}}" id="Telephone"><br>
 			</article>
 			<article>
@@ -38,7 +41,18 @@
 		</div>
 		<div class="rsubling">
 			<article>
-				<label>USA Visa</label><input type="checkbox">
+				<label>USA Visa</label><input type="checkbox" id="usavisa">
+			<script>
+				var visa={{USA_visa_expiration}};
+				if (!visa)
+					{
+	    				$( ".usavisa").prop('checked', false);
+					}
+					else
+					{
+   	 					$( ".usavisa").prop('checked', true);
+					}
+				</script>
 			</article>
 			<article>
 				<label>Exp.Date:</label><input type="text" value="{{USA_visa_expiration}}" id="USA_visa_expiration"><br>
@@ -65,30 +79,25 @@
 				<label>Exp. date</label><input type="text" value="{{Passport_expiration}}" id="Passport_expiration"><br>
 			</article>
 			<article>
-				<label>Malta:</label><input type="text" value="{{Malta}}"><input type="date"><br>
+				<label>Malta:</label><input type="text" value="{{Malta_license_number}}" id="Malta_license_number"><br>
 			</article>
 			<article>
-				<label>S.V.G.:</label><input type="text" value="{{SVG}}"><input type="date"><br>
+				<label>S.V.G.:</label><input type="text" value="{{SVG_license_number}}" id="SVG_license_number"><br>
 			</article>
 			<article>
-				<label>Bahamas:</label><input type="text" value="{{Bahamas}}"><input type="date"><br>
+				<label>Bahamas:</label><input type="text" value="{{Bahamas_license_number}}" id="Bahamas_license_number"><br>
 			</article>
 			<article>
-				<label>Cayman:</label><input type="text" value="{{Cayman}}"><input type="date"><br>
+				<label>Cayman:</label><input type="text" value="{{Cayman_license_number}}" id="Cayman_license_number"><br>
 			</article>
 			<article>
-				<label>Panama:</label><input type="text" value="{{Panama}}"><input type="date"><br>
+				<label>Panama:</label><input type="text" value="{{Panama_license_number}}" id="Panama_license_number"><br>
 			</article>
 			<article>
-				<label>Gibraltar:</label><input type="text" value="{{Gibraltar}}"><input type="date"><br>
+				<label>Gibraltar:</label><input type="text" value="{{Gibraltar_license_number}}" id="Gibraltar_license_number"><br>
 			</article>
 			<article>
 				<label>National license:</label><input type="text" value="{{National_license_number}}"><input type="text" value="{{National_license_expiration}}"><br>
-			</article>
-			<article>
-				<label>SSO Cert.</label><input type="checkbox">
-
-				<label>issue date</label><input type="date"><br>
 			</article>
 			<article>
 				<input type="submit" value="Save" id="editSeamanButton">
