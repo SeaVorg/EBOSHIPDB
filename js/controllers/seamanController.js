@@ -134,11 +134,11 @@ app.seamanController = (function () {
             })
     };
 
-    SeamanController.prototype.addSeaman = function (title, text, deadline) {
-        //console.log("controller add seaman ");
-        return this.model.addSeaman(title, text, deadline)
+    SeamanController.prototype.addSeaman = function (data) {
+        console.log("controller add seaman ");
+        return this.model.addSeaman(data)
             .then(function() {
-                window.location.replace('#/mySeamans/');
+                //window.location.replace('#/mySeamans/');
                 app.success_msg("Successfully added new seaman!");
             }, function(error) {
                 app.error_msg(error.responseJSON.error);

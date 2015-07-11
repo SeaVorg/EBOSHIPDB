@@ -72,7 +72,7 @@ var app = app || {};
             var SSOCertz = $('#SSOCert').val();
             if(visa=='on') visa=true;
             if(visa=='off') visa=false;
-            
+
 
             $('#addSeamanButton').click(function() {
                 //console.log("in add ");
@@ -97,7 +97,8 @@ var app = app || {};
                     Passport_number: $('#Passport_number').val(),
                     Passport_expiration : $('#Passport_expiration').val(),
                     National_license_number : $('#National_license_number').val(),
-                    SSOCert : $('#SSOCert').val()
+                    SSOCert : $('#SSOCert').val(),
+                    Available : true
                 };
                 console.log(data);
 

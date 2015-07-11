@@ -30,23 +30,11 @@ app.seamanModel = (function() {
         return this.requester.get(this.serviceUrl + '?where={"Available": true }&limit=50&count=50', this.headers.getHeaders(true));
     }
 
-    SeamanModel.prototype.addSeaman = function(title, text, deadline) {
+    SeamanModel.prototype.addSeaman = function(data) {
         //console.log("add seaman called");
-        var userId = sessionStorage['userId'];
-        var author = sessionStorage['fullName'];
-        var data = {
-            title : title,
-            text : text,
-            author : author,
-            deadline : deadline,
-            ACL : {
-                "*":{"read":true}, 
-            }
-        };
-
-        data.ACL[userId] = {"write":true,"read":true};
-        //console.log("adding seaman with data ");
-        //console.log(data);
+       
+        console.log("adding seaman with data, model ");
+        console.log(data);
         return this.requester.post(this.serviceUrl, this.headers.getHeaders(true), data);
     };
 
