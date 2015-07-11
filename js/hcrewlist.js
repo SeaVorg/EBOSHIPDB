@@ -5,6 +5,7 @@ var app = app || {};
     var restAPI = 'C7MXpLQzn1CLA8Io2y2GbCJA1XEhnTLALc7qMYVY';
     var baseUrl = 'https://api.parse.com/1/';
 
+
     app.getParam = function (name) {
         return decodeURIComponent(
             (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20')
@@ -68,6 +69,19 @@ var app = app || {};
      seamanController.listShips(selector);
 
     selector = '#content';
+
+    app.shipbtn = function()
+    {
+        var data = {
+            beginDate : $('#startd').val(),
+            endDate : $('#endd').val(),
+            ship : $('#ships').val(),
+        };
+        console.log(data);
+        seamanController.listShipsDate(selector,data);
+        //seamanController.loadCrewView(selector, data);
+
+    }
     //if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){
     // selector = '#ranks';
     // seamanController.listRanks(selector);

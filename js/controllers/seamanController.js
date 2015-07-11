@@ -46,7 +46,19 @@ app.seamanController = (function () {
         console.log("controller mofo called list all ships");
         return this.model.listShips()
             .then(function (data) {
-                _this.viewBag.listRanks.loadRanksView(selector, data);
+                _this.viewBag.listShips.loadShipsView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listShipsDate = function (selector, data) {
+        var _this = this;
+        console.log("controller mofo called list all ships shit");
+        return this.model.listShipsDate(data)
+            .then(function (data) {
+                console.log(data);
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })

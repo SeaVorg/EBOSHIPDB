@@ -24,6 +24,9 @@ app.seamanViews = (function() {
         this.listRanks = {
             loadRanksView: loadRanksView
         }
+        this.listShips = {
+            loadShipsView: loadShipsView
+        }
     }
 
     function loadSeamansTodayView ( selector, data, itemsCount, pageId)
