@@ -56,6 +56,18 @@ app.seamanViews = (function() {
         });
     }
 
+    function loadShipsView (selector, data)
+    {
+        console.log("in load ships view");
+        $.get('templates/shipsStuff.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            //console.log(outHtml);
+            $(selector).html(outHtml);
+        }).then(function(){
+            //$(selector)[0].value=app.seamanRank;
+        });
+    }
+
     function loadSeamansView (selector, data) {
         console.log("in load seaman view");
         $.get('templates/seamanList.html', function (template) {

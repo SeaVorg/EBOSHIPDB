@@ -40,6 +40,18 @@ app.seamanController = (function () {
             })
     };
 
+    SeamanController.prototype.listShips  = function (selector)
+    {   
+        var _this = this;
+        console.log("controller mofo called list all ships");
+        return this.model.listShips()
+            .then(function (data) {
+                _this.viewBag.listRanks.loadRanksView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
     SeamanController.prototype.listRanks  = function (selector)
     {   
         var _this = this;

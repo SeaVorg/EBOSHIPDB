@@ -4,6 +4,7 @@ app.seamanModel = (function() {
     function SeamanModel(baseUrl, requester, headers) {
         this.serviceUrl = baseUrl + 'classes/Seaman/';
         this.ranksUrl = baseUrl + 'classes/Ranks/';
+        this.shipsUrl = baseUrl + 'classes/Ships/';
         this.requester = requester;
         this.headers = headers;
     }
@@ -11,6 +12,10 @@ app.seamanModel = (function() {
     SeamanModel.prototype.listRanks = function ()
     {
         return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
+    }
+    SeamanModel.prototype.listShips = function ()
+    {
+        return this.requester.get(this.shipsUrl, this.headers.getHeaders(true));
     }
     SeamanModel.prototype.listReallyAllSeamans = function ( name )
     {
