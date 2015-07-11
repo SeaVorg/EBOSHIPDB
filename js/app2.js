@@ -72,6 +72,12 @@ var app = app || {};
     if(as!=null) seamanController.listAllSeamansNameAvailable(selector, as);
     else seamanController.listAllSeamansAvailable(selector);
 
+    $("#search").keyup(function (e) {
+            if (e.which == 13) {
+                app.shitbtn();
+                }
+            });
+
     app.deleteSeaman = function deleteSeaman(objectId)
     {
         //console.log("deleting");
