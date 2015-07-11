@@ -1,7 +1,7 @@
 {{#results}}
 <div class="lsubling">
 			<article>
-				<label>ID </label><input type="text" size="1" maxlength="4"  value="{{Seaman}}"  id="SeamanID" readonly >
+				<label>ID </label><input type="text" size="1" maxlength="4"  value="{{SeamanID}}"  id="SeamanID" readonly >
 				Seaman:<input type="text" value="{{Name}}" id="Name">
 				<label>Rank</label>
 				<select id="ranks" >
@@ -43,14 +43,14 @@
 			<article>
 				<label>USA Visa</label><input type="checkbox" id="usavisa">
 			<script>
-				var visa={{USA_visa_expiration}};
+				var visa='{{USA_visa_expiration}}';
 				if (!visa)
 					{
-	    				$( ".usavisa").prop('checked', false);
+	    				$( "#usavisa").prop('checked', false);
 					}
 					else
 					{
-   	 					$( ".usavisa").prop('checked', true);
+   	 					$( "#usavisa").prop('checked', true);
 					}
 				</script>
 			</article>

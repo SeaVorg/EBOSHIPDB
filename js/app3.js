@@ -61,7 +61,7 @@ var app = app || {};
    
 
     selector = '#container';
-    $('#Seaman')[0].value = 13000;
+    $('#SeamanID')[0].value = 13000;
 
 
      selector = '#ranks';
@@ -97,7 +97,7 @@ var app = app || {};
                     Passport_number: $('#Passport_number').val(),
                     Passport_expiration : $('#Passport_expiration').val(),
                     National_license_number : $('#National_license_number').val(),
-                    SSOCert : $('#SSOCert').val(),
+                    National_license_expiration : $('#National_license_expiration').val(),
                     Rank : $('#ranks').val(),
                     Available : true
                 };
