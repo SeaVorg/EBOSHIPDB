@@ -98,6 +98,7 @@ var app = app || {};
                     Passport_expiration : $('#Passport_expiration').val(),
                     National_license_number : $('#National_license_number').val(),
                     SSOCert : $('#SSOCert').val(),
+                    Rank : $('#ranks').val(),
                     Available : true
                 };
                 console.log(data);
