@@ -92,10 +92,7 @@ app.seamanViews = (function() {
             var outHtml = Mustache.render(template, data);
             $(selector).html(outHtml);
         }).then(function() {
-            $('#editSeamanButton').click(function() {
-               console.log(" editing ");
-                return false;
-            })
+            
         }).done();
     }
 

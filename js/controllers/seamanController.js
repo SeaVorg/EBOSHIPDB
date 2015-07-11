@@ -145,10 +145,10 @@ app.seamanController = (function () {
             })
     };
 
-    SeamanController.prototype.editSeaman = function (phoneId, title, text, deadline) {
-        return this.model.editSeaman(phoneId, title, text, deadline)
+    SeamanController.prototype.editSeaman = function (seamanId, data) {
+        return this.model.editSeaman(seamanId, data)
             .then(function() {
-                window.location.replace('#/mySeamans/');
+                //window.location.replace('#/mySeamans/');
                 app.success_msg("Successfully edited seaman!");
             }, function(error) {
                 app.error_msg(error.responseJSON.error);

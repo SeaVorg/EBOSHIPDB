@@ -27,7 +27,7 @@ app.seamanModel = (function() {
     SeamanModel.prototype.listAllSeamansAvailable = function()
     {
         console.log("available check");
-        return this.requester.get(this.serviceUrl + '?where={"Available": true }&limit=50&count=50', this.headers.getHeaders(true));
+        return this.requester.get(this.serviceUrl + '?limit=50&count=50&where={"Available": true }', this.headers.getHeaders(true));
     }
 
     SeamanModel.prototype.addSeaman = function(data) {
@@ -38,14 +38,7 @@ app.seamanModel = (function() {
         return this.requester.post(this.serviceUrl, this.headers.getHeaders(true), data);
     };
 
-    SeamanModel.prototype.editSeaman = function(seamanId, title, text, deadline) {
-        // we dont change author
-        var data = {
-            title : title,
-            text : text,
-            deadline : deadline
-        };
-
+    SeamanModel.prototype.editSeaman = function(seamanId, data) {
         return this.requester.put(this.serviceUrl + seamanId, this.headers.getHeaders(true), data);
     };
 

@@ -69,7 +69,48 @@ var app = app || {};
      selector = '#ranks';
      seamanController.listRanks(selector).then(function(){
         $(selector)[0].value=app.seamanRank;
-    });
+            //console.log("attemptiong hook");
+            // checkboxes
+            var visa = $('#USA_visa').val();
+            var SSOCertz = $('#SSOCert').val();
+            if(visa=='on') visa=true;
+            if(visa=='off') visa=false;
+
+
+            $('#editSeamanButton').click(function() {
+                //console.log("in add ");
+                var data = {
+                    Seaman : $('#Seaman').val(),
+                    Name : $('#Name').val(),
+                    Birth_date : $('#Birth_date').val(),
+                    Birth_place : $('#Birth_place').val(),
+                    Nationality: $('#Nationality').val(),
+                    Email: $('#Email').val(),
+                    Address: $('#Address').val(),
+                    City: $('#City').val(),
+                    Telephone: $('#Telephone').val(),
+                    Recruiting_agent: $('#Recruiting_agent').val(),
+                    Notes: $('#Notes').val(),
+                    USA_visa_expiration: $('#USA_visa_expiration').val(),
+                    Rank_modify: $('#Rank_modify').val(),
+                    Application_date: $('#Application_date').val(),
+                    CRA_expiration: $('#CRA_expiration').val(),
+                    Seaman_book_number: $('#Seaman_book_number').val(),
+                    Seaman_book_expiration: $('#Seaman_book_expiration').val(),
+                    Passport_number: $('#Passport_number').val(),
+                    Passport_expiration : $('#Passport_expiration').val(),
+                    National_license_number : $('#National_license_number').val(),
+                    SSOCert : $('#SSOCert').val(),
+                    Rank : $('#ranks').val(),
+                    Available : true
+                };
+                console.log(data);
+
+                seamanController.editSeaman(as,data);
+                
+                return false;
+            })
+        }).done();
     });
     
 }());
