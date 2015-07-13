@@ -70,19 +70,31 @@ app.seamanController = (function () {
                 var origs = Date.parse(ss);
                 var orige = Date.parse(ee);
                 
+                
                 for(i=0;i<data.results.length;i++)
                 {
                     var start =  Date.parse(data.results[i].Embarking_date);
                     var end=  Date.parse(data.results[i].Disembarking_date);
 
                     if(+origs<=+start&&+orige>=+end) {
-                        _this.model.listSeamansId(data.results[i].SeamanID).then(function(dataz){
+                        var str = data.results[i].SeamanID;
+                        
+                       
+                        
+                        _this.model.listSeamansId(str).then(function(dataz){
+                            console.log("deiba");
+                            console.log(dataz);
+                            console.log(dataz.results[0]);
                             results.push(dataz.results[0]);
+                            done=1;
                         });
+
                         //results.push(data.results[i]);
                     }
                         
                 }
+                console.log("listShipsDate");
+
                 console.log(results);
                 _this.viewBag.listShipmans.loadShipmansView(selector, results);
             }, function (error) {

@@ -37,13 +37,16 @@ app.seamanModel = (function() {
     
     SeamanModel.prototype.listAllSeamans = function() {
         console.log(" in model ");
+
        return this.requester.get(this.serviceUrl + '?limit=50&count=50' , this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
     SeamanModel.prototype.listSeamansId = function(id ) {
         console.log("in modelasz cust" + id);
-        return this.requester.get(this.serviceUrl + '?where={"SeamanId": "' + id + '"}', this.headers.getHeaders(true));
+        console.log('?where={"SeamanID": {"$regex":"' + id + '"}}');
+        var asd= '?where={"SeamanID" : {"$regex":"'+name+'", "$options" :"i" }}';
+                        return this.requester.get(this.serviceUrl + '?where={"SeamanID": {"$regex":"' + id + '"}}', this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
