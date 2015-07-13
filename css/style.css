@@ -219,7 +219,11 @@ border-color:red;
 margin: 5px 5px 5px 5px;
 font-family: 'Sansita One', cursive;
 }
+.main-content article img{
+  width:256px;
+  height:256px;
 
+}
 
 .option{
   -webkit-touch-callout: none;
