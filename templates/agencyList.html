@@ -1,0 +1,23 @@
+
+<table id="results">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Port</th>
+        <th>Phone</th>
+        <th>Delete</th>
+    </tr>
+    {{#results}}
+    <tr>
+        <td>{{AgencyID}}</td>
+        <td>{{Name}}</td>
+        <td>{{Email}}</td>
+        <td>{{Port_Code}}</td>
+        <td>{{Phone}}</td>
+        <td>
+            <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
+        </td>
+    </tr>
+    {{/results}}
+</table>
