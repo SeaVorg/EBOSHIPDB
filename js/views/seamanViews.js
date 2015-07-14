@@ -8,6 +8,7 @@ app.seamanViews = (function() {
         this.listSeamans = {
             loadSeamansView: loadSeamansView
         };
+
         this.addSeaman = {
             addSeamanView: addSeamanView
         };
@@ -92,7 +93,9 @@ app.seamanViews = (function() {
             var outHtml = Mustache.render(template, data);
             $(selector).html(outHtml);
         });
+
     }
+
     function addSeamanView (selector) {
         $.get('templates/addSeaman.html', function (template) {
             var outHtml = Mustache.render(template);

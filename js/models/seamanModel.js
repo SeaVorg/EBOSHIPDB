@@ -62,7 +62,6 @@ app.seamanModel = (function() {
         return this.requester.get(this.serviceUrl + '?limit=50&count=50&where={"Available": true }', this.headers.getHeaders(true));
     }
 
-
     SeamanModel.prototype.addSeaman = function(data) {
         //console.log("add seaman called");
        

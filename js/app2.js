@@ -69,8 +69,8 @@ var app = app || {};
     var as = app.getParam("who");
     app.asz = as;
     console.log(as);
-    if(as!=null){seamanController.listAllSeamansNameAvailable(selector, as);}
-    else {seamanController.listAllSeamansAvailable(selector);}
+    if(as!=null) seamanController.listAllSeamansNameAvailable(selector, as);
+    else seamanController.listAllSeamansAvailable(selector);
 
     $("#search").keyup(function (e) {
             if (e.which == 13) {

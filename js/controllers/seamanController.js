@@ -101,6 +101,7 @@ app.seamanController = (function () {
                 app.error_msg(error.responseJSON.error);
             })
     };
+
     SeamanController.prototype.listRanks  = function (selector)
     {   
         var _this = this;
@@ -136,7 +137,7 @@ app.seamanController = (function () {
                 }
               
                 
-                _this.viewBag.listSeamans.loadSeamansOnBoardView(selector, data);
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })
@@ -148,7 +149,7 @@ app.seamanController = (function () {
         return this.model.listAllSeamansAvailable()
             .then(function (data) {
                 
-                _this.viewBag.listSeamans.loadSeamansOnBoardView(selector, data);
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })
