@@ -57,7 +57,7 @@ var app = app || {};
 
     //var homeViews = app.homeViews.load();
     //var userViews = app.userViews.load();
-    var seamanViews = app.seamanViews.load();
+    var seamanViews = app.onboardViews.load();
 
     //var userController = app.userController.load(userModel, userViews);
     var seamanController = app.seamanController.load(seamanModel, seamanViews);

@@ -1,7 +1,7 @@
 var app = app || {};
 
-app.seamanViews = (function() {
-    function SeamanViews() {
+app.onboardViews = (function() {
+    function onboardViews() {
         this.listTodaySeamans = {
             loadSeamansTodayView : loadSeamansTodayView
         }
@@ -145,7 +145,7 @@ app.seamanViews = (function() {
 
     return {
         load: function() {
-            return new SeamanViews();
+            return new onboardViews();
         }
     }
 }());
