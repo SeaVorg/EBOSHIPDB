@@ -73,16 +73,18 @@ var app = app || {};
     if(as!=null) seamanController.listAllSeamansNameCrew(selector, as);
     else seamanController.listAllSeamansCrew(selector);
 
-    $("#search").keyup(function (e) {
-            if (e.which == 13) {
-                app.shitbtn();
-                }
-            });
+    
 
     app.shitbtn = function(name)
     {
         window.location.search='?who='+$('#search')[0].value+'&ship='+$('#ships').val();
     }
+
+    $("#search").keyup(function (e) {
+            if (e.which == 13) {
+                app.shitbtn();
+                }
+            });
 
     
     //if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){

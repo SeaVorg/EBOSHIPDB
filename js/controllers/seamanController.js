@@ -71,6 +71,8 @@ app.seamanController = (function () {
                 var orige = Date.parse(ee);
                 
                 var zaqvki=0;
+
+                var ids = [];
                 
                 for(i=0;i<data.results.length;i++)
                 {
@@ -81,30 +83,21 @@ app.seamanController = (function () {
                         var str = data.results[i].SeamanID;
                         
                        
-                        var currI = i;
-                        console.log("asda");
-                        console.log(currI);
-                        _this.model.listSeamansId(str).then(function(dataz){
+                        
+                        ids.push(str);
+                        
+
+                        //results.push(data.results[i]);
+                    }
+                    _this.model.listSeamansIds(ids).then(function(dataz){
                             console.log("deiba");
                             console.log(dataz);
-                            console.log(dataz.results[0]);
-                            results.push(dataz.results[0]);
-                            zaqvki++;
-                            if(zaqvki==data.results.length) 
-                            {
-                                console.log(results);
-                                var data2 = {
-                                    results : results
-                                };
-                                console.log(data2);
-                                _this.viewBag.listShipmans.loadShipmansView(selector, data2);
-                            }
+                           
+                                _this.viewBag.listShipmans.loadShipmansView(selector, dataz);
 
                             
                         });
 
-                        //results.push(data.results[i]);
-                    }
                         
                 }
                 console.log("listShipsDate");

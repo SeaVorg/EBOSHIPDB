@@ -59,24 +59,30 @@ app.seamanModel = (function() {
 
     SeamanModel.prototype.listAllSeamansIdCrew = function(ids ) {
         console.log("in crwt");
-        console.log(ids);
-        console.log(ids.toString());
+        //console.log(ids);
+        //console.log(ids.toString());
         var shit = '[';
         var i;
         for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
             shit+=']';
             console.log(shit);
-        console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
         var asd= '?where={"SeamanID": {"$in":' + shit + '}}';
                         return this.requester.get(this.serviceUrl + '?where={"SeamanID": {"$in":' + shit + '}}', this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
-    SeamanModel.prototype.listSeamansId = function(id ) {
-        console.log("in modelasz cust" + id);
-        console.log('?where={"SeamanID": {"$regex":"' + id + '"}}');
-        var asd= '?where={"SeamanID" : {"$regex":"'+name+'", "$options" :"i" }}';
-                        return this.requester.get(this.serviceUrl + '?where={"SeamanID": {"$regex":"' + id + '"}}', this.headers.getHeaders(true));
+    SeamanModel.prototype.listSeamansIds = function(ids ) {
+        console.log("in modelasz cust");
+        var shit = '[';
+        var i;
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+            shit+=']';
+            console.log(shit);
+        //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        var asd= '?where={"SeamanID": {"$in":' + shit + '}}';
+
+                        return this.requester.get(this.serviceUrl + '?where={"SeamanID": {"$in":' + shit + '}}', this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
