@@ -34,6 +34,14 @@ app.seamanModel = (function() {
        console.log(asd);
     return this.requester.get(this.serviceUrl  + asd, this.headers.getHeaders(true));
      };
+     SeamanModel.prototype.listReallyAllSeamansShips = function ( name , ship)
+    {
+
+       console.log("nwnw");
+       var asd= '?where={"Name" : {"$regex":"'+name+'", "$options" :"i" }}';
+       console.log(asd);
+    return this.requester.get(this.serviceUrl  + asd, this.headers.getHeaders(true));
+     };
      SeamanModel.prototype.listReallyAllSeamansCrew = function ( name )
     {
 
@@ -47,6 +55,13 @@ app.seamanModel = (function() {
         console.log(" in model ");
 
        return this.requester.get(this.serviceUrl + '?limit=50&count=50' , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
+    SeamanModel.prototype.listAllSeamansShips = function(ship) {
+        console.log(" in model ships  "+ship);
+         var asd = '?where={"Ship" : "' + ship + '", "Disembarked" : false }&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
