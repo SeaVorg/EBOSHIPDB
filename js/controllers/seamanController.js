@@ -70,6 +70,7 @@ app.seamanController = (function () {
                 var origs = Date.parse(ss);
                 var orige = Date.parse(ee);
                 
+                var zaqvki=0;
                 
                 for(i=0;i<data.results.length;i++)
                 {
@@ -80,13 +81,26 @@ app.seamanController = (function () {
                         var str = data.results[i].SeamanID;
                         
                        
-                        
+                        var currI = i;
+                        console.log("asda");
+                        console.log(currI);
                         _this.model.listSeamansId(str).then(function(dataz){
                             console.log("deiba");
                             console.log(dataz);
                             console.log(dataz.results[0]);
                             results.push(dataz.results[0]);
-                            done=1;
+                            zaqvki++;
+                            if(zaqvki==data.results.length) 
+                            {
+                                console.log(results);
+                                var data2 = {
+                                    results : results
+                                };
+                                console.log(data2);
+                                _this.viewBag.listShipmans.loadShipmansView(selector, data2);
+                            }
+
+                            
                         });
 
                         //results.push(data.results[i]);
@@ -95,8 +109,7 @@ app.seamanController = (function () {
                 }
                 console.log("listShipsDate");
 
-                console.log(results);
-                _this.viewBag.listShipmans.loadShipmansView(selector, results);
+                
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })

@@ -38,6 +38,8 @@ app.seamanViews = (function() {
         console.log("in load ships from adsasdad view");
         $.get('templates/shipsDateStuff.html', function (template) {
             var outHtml = Mustache.render(template, data);
+            console.log('out html');
+            console.log(outHtml);
             //console.log(outHtml);
             $(selector).html(outHtml);
         }).then(function(){
