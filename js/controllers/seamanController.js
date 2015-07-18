@@ -168,6 +168,18 @@ app.seamanController = (function () {
             })
     };
 
+    SeamanController.prototype.listAllSeamansNameCrew = function (selector, name) {
+        var _this = this;
+        console.log("crew all seamans with name ");
+        return this.model.listReallyAllSeamansCrew(name)
+            .then(function (data) {
+                console.log(data);
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
     SeamanController.prototype.listAllSeamansName = function (selector, name) {
         var _this = this;
         console.log("controller mofo called list all seamans");
@@ -204,6 +216,30 @@ app.seamanController = (function () {
               
                 
                 _this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listAllSeamansCrew = function (selector) {
+        var _this = this;
+        console.log("crew all seamans");
+        return this.model.listAllSeamansCrew()
+            .then(function (data) {
+                var ids = [];
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        
+                        ids.push(str);
+                        
+                }
+                console.log(ids);
+                _this.model.listAllSeamansIdCrew(ids).then(function(data5){
+                    _this.viewBag.listSeamans.loadSeamansView(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })

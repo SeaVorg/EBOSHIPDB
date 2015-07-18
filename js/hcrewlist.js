@@ -70,6 +70,12 @@ var app = app || {};
 
     selector = '#content';
 
+    $("#search").keyup(function (e) {
+            if (e.which == 13) {
+                app.shitbtn();
+                }
+            });
+
     app.shipbtn = function()
     {
         var data = {

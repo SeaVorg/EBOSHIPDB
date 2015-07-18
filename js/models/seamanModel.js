@@ -34,11 +34,41 @@ app.seamanModel = (function() {
        console.log(asd);
     return this.requester.get(this.serviceUrl  + asd, this.headers.getHeaders(true));
      };
+     SeamanModel.prototype.listReallyAllSeamansCrew = function ( name )
+    {
+
+       console.log("nwnw");
+       var asd= '?where={"Name" : {"$regex":"'+name+'", "$options" :"i" }}';
+       console.log(asd);
+    return this.requester.get(this.serviceUrl  + asd, this.headers.getHeaders(true));
+     };
     
     SeamanModel.prototype.listAllSeamans = function() {
         console.log(" in model ");
 
        return this.requester.get(this.serviceUrl + '?limit=50&count=50' , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
+    SeamanModel.prototype.listAllSeamansCrew = function() {
+        console.log(" in model crew ");
+         var asd = '?where={"Embarked" : true, "Disembarked" : false }&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
+    SeamanModel.prototype.listAllSeamansIdCrew = function(ids ) {
+        console.log("in crwt");
+        console.log(ids);
+        console.log(ids.toString());
+        var shit = '[';
+        var i;
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+            shit+=']';
+            console.log(shit);
+        console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        var asd= '?where={"SeamanID": {"$in":' + shit + '}}';
+                        return this.requester.get(this.serviceUrl + '?where={"SeamanID": {"$in":' + shit + '}}', this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
