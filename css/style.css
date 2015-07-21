@@ -222,6 +222,9 @@ font-family: 'Sansita One', cursive;
 .main-content article img{
   width:256px;
   height:256px;
+}
+.main-content article input{
+  font-family: 'Sansite One', cursive;
 
 }
 
@@ -261,14 +264,9 @@ user-select: none;
 }
 .lsubling{
 position: relative;
-
 width:49%;
 text-align:left;
 float:left;
-border:red solid 1px;
-}
-.lsubling img{
-width:100px;
 }
 .rsubling{
 position: relative;
@@ -276,10 +274,6 @@ margin-left:auto;
 text-align:left;
 width:49%;
 float:right;
-border:black solid 1px;
-}
-.rrsubling{
-position: relative;s
 }
 
 .back-to-top {
