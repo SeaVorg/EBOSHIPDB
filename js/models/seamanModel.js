@@ -97,6 +97,20 @@ app.seamanModel = (function() {
        return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
+    SeamanModel.prototype.listAllSeamansIdCrewNot = function(ids ) {
+        console.log("in crwt");
+        //console.log(ids);
+        //console.log(ids.toString());
+        var shit = '[';
+        var i;
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+            shit+=']';
+            console.log(shit);
+        //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        var asd= '?where={"SeamanID": {"$in":' + shit + '}}';
+                        return this.requester.get(this.serviceUrl + '?where={"SeamanID": {"$nin":' + shit + '}}&limit=35770&skip=0', this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
 
     SeamanModel.prototype.listAllSeamansIdCrew = function(ids ) {
         console.log("in crwt");
