@@ -196,7 +196,7 @@ border-color:red;
 
 
 .main-content{
-  margin-top:10%;
+  margin-top:40px;
  /* background-color:grey;*/
   width:100%;
   height:60%;
@@ -260,20 +260,26 @@ user-select: none;
   top: 10px;
 }
 .lsubling{
-position:absolute;
-left:10%;
-top:20%;
+position: relative;
+
+width:49%;
 text-align:left;
+float:left;
+border:red solid 1px;
+}
+.lsubling img{
+width:100px;
 }
 .rsubling{
-position:absolute;
-right:10%;
-top:20%;
+position: relative;
+margin-left:auto;
 text-align:left;
+width:49%;
+float:right;
+border:black solid 1px;
 }
-.rsubling .lsubling{
-display: inline;
-
+.rrsubling{
+position: relative;s
 }
 
 .back-to-top {
