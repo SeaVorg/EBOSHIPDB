@@ -161,6 +161,18 @@ app.seamanController = (function () {
             })
     };
 
+    SeamanController.prototype.listAllSeamansNameShips = function (selector, name, ship) {
+        var _this = this;
+        console.log("ships all seamans with name and ship");
+        return this.model.listReallyAllSeamansShips(name, ship)
+            .then(function (data) {
+                console.log(data);
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
     SeamanController.prototype.listAllSeamansNameCrew = function (selector, name) {
         var _this = this;
         console.log("crew all seamans with name ");
@@ -233,6 +245,19 @@ app.seamanController = (function () {
                     _this.viewBag.listSeamans.loadSeamansView(selector, data5);
                 });
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listAllSeamansShips = function (selector, ship) {
+        var _this = this;
+        console.log("controller mofo called list all seamans ships " + ship);
+        return this.model.listAllSeamansShips(ship)
+            .then(function (data) {
+                console.log("bak in controler");
+                console.log(data);
+                _this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })
