@@ -43,8 +43,8 @@ app.seamanController = (function () {
     SeamanController.prototype.listShipsAll  = function (selector)
     {   
         var _this = this;
-        console.log("controller mofo called list all ships");
-        return this.model.listShips()
+        console.log("controller mofo called list all ships all");
+        return this.model.listShipsAll()
             .then(function (data) {
                 _this.viewBag.listShips.loadShipsViewAll(selector, data);
             }, function (error) {

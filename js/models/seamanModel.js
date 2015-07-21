@@ -18,6 +18,12 @@ app.seamanModel = (function() {
     {
         return this.requester.get(this.shipsUrl, this.headers.getHeaders(true));
     }
+    SeamanModel.prototype.listShipsAll = function ()
+    {
+        console.log("shieis");
+        var asd = '?where={"Active":true}';
+        return this.requester.get(this.shipsUrl + asd, this.headers.getHeaders(true));
+    }
     SeamanModel.prototype.listShipsDate = function (data)
     {
         console.log("list ships modle");
