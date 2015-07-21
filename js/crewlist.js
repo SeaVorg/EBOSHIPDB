@@ -73,7 +73,8 @@ var app = app || {};
     app.bsz = bz;
     console.log(as);
     console.log(bz);
-    if(bz==null || bz=='ALL'){
+    if(bz==null) bz='ALL';
+    if(bz=='ALL'){
     if(as!=null) seamanController.listAllSeamansNameCrew(selector, as);
     else seamanController.listAllSeamansCrew(selector);
     }
