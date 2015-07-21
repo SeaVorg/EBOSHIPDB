@@ -69,11 +69,13 @@ var app = app || {};
 
     var as = app.getParam("who");
     var bz = app.getParam("ship");
-    app.asz = as;
-    app.bsz = bz;
+    
     console.log(as);
     console.log(bz);
     if(bz==null) bz='ALL';
+    app.asz = as;
+    app.bsz = bz;
+    
     if(bz=='ALL'){
     if(as!=null) seamanController.listAllSeamansNameCrew(selector, as);
     else seamanController.listAllSeamansCrew(selector);
