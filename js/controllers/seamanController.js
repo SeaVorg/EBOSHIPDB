@@ -232,17 +232,34 @@ app.seamanController = (function () {
         return this.model.listAllSeamansCrew()
             .then(function (data) {
                 var ids = [];
+                var stuffs = [];
+                var stships = [];
+                var i;
                 console.log(data.results.length);
                 for(i=0;i<data.results.length;i++)
                 {
                         var str = data.results[i].SeamanID;
-                        
+                        var stship = data.results[i].Ship;
+                        var dataKachvane = data.results[i].Embarking_date;
                         ids.push(str);
+                        stuffs[str] = dataKachvane;
+                        stships[str] = stship;
+                        //stuffs.push(dataKachvane)
                         
                 }
-                console.log(ids);
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
                 _this.model.listAllSeamansIdCrew(ids).then(function(data5){
-                    _this.viewBag.listSeamans.loadSeamansView(selector, data5);
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
+                        data5.results[i].Ship=stships[data5.results[i].SeamanID];
+                    }
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewCrew(selector, data5);
                 });
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
