@@ -26,7 +26,8 @@ app.seamanViews = (function() {
             loadRanksView: loadRanksView
         }
         this.listShips = {
-            loadShipsView: loadShipsView
+            loadShipsView: loadShipsView,
+            loadShipsViewAll: loadShipsViewAll
         }
         this.listShipmans = 
         {
@@ -77,6 +78,19 @@ app.seamanViews = (function() {
             $(selector)[0].value=app.seamanRank;
         });
     }
+
+    function loadShipsViewAll (selector, data)
+    {
+        console.log("YYYYYYYYYYYYYYY");
+        $.get('templates/shipsStuffAll.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            //console.log(outHtml);
+            $(selector).html(outHtml);
+        }).then(function(){
+            $(selector)[0].value=app.bsz;
+        });
+    }
+
 
     function loadShipsView (selector, data)
     {

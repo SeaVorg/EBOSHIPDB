@@ -63,15 +63,24 @@ var app = app || {};
 
 
     selector = '#ships';
-     seamanController.listShips(selector);
+     seamanController.listShipsAll(selector);
 
     selector = '#content';
 
     var as = app.getParam("who");
+    var bz = app.getParam("ship");
     app.asz = as;
+    app.bsz = bz;
     console.log(as);
+    console.log(bz);
+    if(bz==null || bz=='ALL'){
     if(as!=null) seamanController.listAllSeamansNameCrew(selector, as);
     else seamanController.listAllSeamansCrew(selector);
+    }
+    else{
+        if(as!=null) seamanController.listAllSeamansNameCrewShip(selector, as, bz);
+        else seamanController.listAllSeamansCrewShip(selector, bz);
+    }
 
     
 

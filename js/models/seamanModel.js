@@ -65,6 +65,13 @@ app.seamanModel = (function() {
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
+    SeamanModel.prototype.listAllSeamansCrewShip = function(ship) {
+        console.log(" in model crew ship " + ship);
+         var asd = '?where={"Embarked" : true, "Disembarked" : false , "Ship" : "'+ship+'"}&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
     SeamanModel.prototype.listAllSeamansCrew = function() {
         console.log(" in model crew ");
          var asd = '?where={"Embarked" : true, "Disembarked" : false }&limit=35770&skip=0';
