@@ -272,7 +272,7 @@ app.seamanController = (function () {
                 _this.model.listAllSeamansIdCrewNot(ids).then(function(data5){
                     
                     //console.log('read here');
-                    //console.log(data5);
+                    console.log(data5);
                     //console.log('stop reading');
                     _this.viewBag.listSeamans.loadSeamansView(selector, data5);
                 });
