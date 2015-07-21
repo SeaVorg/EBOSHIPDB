@@ -52,6 +52,18 @@ app.seamanController = (function () {
             })
     };
 
+    SeamanController.prototype.listRanksAll  = function (selector)
+    {   
+        var _this = this;
+        console.log("controller mofo called list all ranks all");
+        return this.model.listRanksAll()
+            .then(function (data) {
+                _this.viewBag.listRanks.loadRanksViewAll(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
     SeamanController.prototype.listShips  = function (selector)
     {   
         var _this = this;
@@ -132,30 +144,104 @@ app.seamanController = (function () {
             })
     };
 
-    SeamanController.prototype.listAllSeamansNameAvailable = function (selector, name) {
+    SeamanController.prototype.listAllSeamansNameAvailableRank = function (selector, name, rank) {
         var _this = this;
-        return this.model.listAllSeamansAvailable()
+        console.log("all seamans available name");
+        return this.model.listAllSeamansCrew()
             .then(function (data) {
-                console.log(data);
-
+                var ids = [];
+               
                 var i;
+                console.log(data.results.length);
                 for(i=0;i<data.results.length;i++)
                 {
-                    console.log(i);
-                    
-                    if(data.results[i].Name.toLowerCase().indexOf(name.toLowerCase()) > -1){
-                        console.log('asd');
-                    }
-                    else {
-                        console.log("deleting");
-                        data.results.splice(i,1);
-                        i--;
-                    
-                    }
+                        var str = data.results[i].SeamanID;
+                        
+                        ids.push(str);
+                        
+                        //stuffs.push(dataKachvane)
+                        
                 }
-              
-                
-                _this.viewBag.listSeamans.loadSeamansView(selector, data);
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrewNotNameRank(ids,name,rank).then(function(data5){
+                    
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansView(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listAllSeamansNameAvailable = function (selector, name) {
+        var _this = this;
+        console.log("all seamans available name");
+        return this.model.listAllSeamansCrew()
+            .then(function (data) {
+                var ids = [];
+               
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        
+                        ids.push(str);
+                        
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrewNotName(ids,name).then(function(data5){
+                    
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansView(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listAllSeamansAvailableRank = function (selector,rank) {
+        var _this = this;
+        console.log("controller mofo called list all seamans available rank");
+        console.log("all seamans");
+        return this.model.listAllSeamansCrew()
+            .then(function (data) {
+                var ids = [];
+               
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        
+                        ids.push(str);
+                        
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrewNotRank(ids,rank).then(function(data5){
+                    
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansView(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })

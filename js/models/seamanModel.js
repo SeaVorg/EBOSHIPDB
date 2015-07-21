@@ -10,6 +10,11 @@ app.seamanModel = (function() {
         this.headers = headers;
     }
 
+    SeamanModel.prototype.listRanksAll = function ()
+    {
+        return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
+    }
+
     SeamanModel.prototype.listRanks = function ()
     {
         return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
@@ -95,6 +100,48 @@ app.seamanModel = (function() {
         console.log(" in model crew ");
          var asd = '?where={"Embarked" : true, "Disembarked" : false }&limit=35770&skip=0';
        return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+    SeamanModel.prototype.listAllSeamansIdCrewNotNameRank = function(ids, name, rank ) {
+        console.log("in crwt");
+        //console.log(ids);
+        //console.log(ids.toString());
+        var shit = '[';
+        var i;
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+            shit+=']';
+            console.log(shit);
+        //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        var asd= '?where={"Rank": "'+rank+'","Name" : {"$regex":"'+name+'", "$options" :"i" },"SeamanID": {"$in":' + shit + '}}';
+                        return this.requester.get(this.serviceUrl + '?where={"Rank": "'+rank+'","Name" : {"$regex":"'+name+'", "$options" :"i" },"SeamanID": {"$nin":' + shit + '}}&limit=35770&skip=0', this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+    SeamanModel.prototype.listAllSeamansIdCrewNotRank = function(ids ,rank) {
+        console.log("in crwt");
+        //console.log(ids);
+        //console.log(ids.toString());
+        var shit = '[';
+        var i;
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+            shit+=']';
+            console.log(shit);
+        //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        var asd= '?where={"Rank": "'+rank+'", SeamanID": {"$in":' + shit + '}}';
+                        return this.requester.get(this.serviceUrl + '?where={"Rank": "'+rank+'","SeamanID": {"$nin":' + shit + '}}&limit=35770&skip=0', this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+    SeamanModel.prototype.listAllSeamansIdCrewNotName = function(ids, name ) {
+        console.log("in crwt");
+        //console.log(ids);
+        //console.log(ids.toString());
+        var shit = '[';
+        var i;
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+            shit+=']';
+            console.log(shit);
+        //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
+        var asd= '?where={"Name" : {"$regex":"'+name+'", "$options" :"i" },"SeamanID": {"$in":' + shit + '}}';
+                        return this.requester.get(this.serviceUrl + '?where={"Name" : {"$regex":"'+name+'", "$options" :"i" },"SeamanID": {"$nin":' + shit + '}}&limit=35770&skip=0', this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
     SeamanModel.prototype.listAllSeamansIdCrewNot = function(ids ) {

@@ -9,7 +9,7 @@ var app = app || {};
 
     app.shitbtn = function(name)
     {
-        window.location.search='?who='+$('#search')[0].value;
+        window.location.search='?who='+$('#search')[0].value+'&rank='+$('#ranks').val();
     }
 
     app.getParam = function (name) {
@@ -65,12 +65,27 @@ var app = app || {};
 
     app.seaController = seamanController;
 
+    selector = '#ranks';
+    seamanController.listRanksAll(selector);
+
     var selector = '#container';
     var as = app.getParam("who");
+    var rankz = app.getParam("rank");
+    if(rankz==null) rankz='ALL';
     app.asz = as;
+    app.rankz= rankz;
     console.log(as);
+
+    if(rankz=='ALL')
+    {
     if(as!=null) seamanController.listAllSeamansNameAvailable(selector, as);
     else seamanController.listAllSeamansAvailable(selector);
+    }
+    else
+    {
+        if(as!=null) seamanController.listAllSeamansNameAvailableRank(selector, as,rankz);
+        else seamanController.listAllSeamansAvailableRank(selector,rankz);
+    }
 
     $("#search").keyup(function (e) {
             if (e.which == 13) {

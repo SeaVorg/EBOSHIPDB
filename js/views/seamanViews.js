@@ -23,7 +23,8 @@ app.seamanViews = (function() {
         }
 
         this.listRanks = {
-            loadRanksView: loadRanksView
+            loadRanksView: loadRanksView,
+            loadRanksViewAll: loadRanksViewAll
         }
         this.listShips = {
             loadShipsView: loadShipsView,
@@ -76,6 +77,18 @@ app.seamanViews = (function() {
             $(selector).html(outHtml);
         }).then(function(){
             $(selector)[0].value=app.seamanRank;
+        });
+    }
+
+    function loadRanksViewAll (selector, data)
+    {
+        console.log("in load ranks view");
+        $.get('templates/ranksStuffAll.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            //console.log(outHtml);
+            $(selector).html(outHtml);
+        }).then(function(){
+            $(selector)[0].value=app.rankz;
         });
     }
 
