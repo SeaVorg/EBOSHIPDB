@@ -213,7 +213,7 @@ app.seamanController = (function () {
                     for(i=0;i<data5.results.length;i++)
                     {
                         data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
-                        data5.results[i].Ship=stships[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
                     }
                     //console.log('read here');
                     //console.log(data5);
@@ -254,7 +254,7 @@ app.seamanController = (function () {
                     for(i=0;i<data5.results.length;i++)
                     {
                         data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
-                        data5.results[i].Ship=stships[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
                     }
                     //console.log('read here');
                     //console.log(data5);
@@ -336,7 +336,7 @@ app.seamanController = (function () {
                     for(i=0;i<data5.results.length;i++)
                     {
                         data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
-                        data5.results[i].Ship=stships[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
                     }
                     //console.log('read here');
                     //console.log(data5);
@@ -377,7 +377,7 @@ app.seamanController = (function () {
                     for(i=0;i<data5.results.length;i++)
                     {
                         data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
-                        data5.results[i].Ship=stships[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
                     }
                     //console.log('read here');
                     //console.log(data5);

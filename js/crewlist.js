@@ -69,7 +69,7 @@ var app = app || {};
 
     var as = app.getParam("who");
     var bz = app.getParam("ship");
-    
+    app.shipsNames=[];
     console.log(as);
     console.log(bz);
     if(bz==null) bz='ALL';
@@ -97,6 +97,11 @@ var app = app || {};
                 app.shitbtn();
                 }
             });
+
+    app.addstuff = function(name, name2)
+    {
+        app.shipsNames[name]=name2;
+    }
 
     
     //if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){

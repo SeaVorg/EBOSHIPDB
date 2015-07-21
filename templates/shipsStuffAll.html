@@ -1,4 +1,7 @@
 <option value='ALL'>All ships</option>
 {{#results}}
 <option value="{{Ship}}">{{Description}}</option>
+<script>
+app.addstuff('{{Ship}}', '{{Description}}');
+</script>
 {{/results}}
