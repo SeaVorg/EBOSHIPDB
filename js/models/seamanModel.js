@@ -6,6 +6,7 @@ app.seamanModel = (function() {
         this.ranksUrl = baseUrl + 'classes/Ranks/';
         this.shipsUrl = baseUrl + 'classes/Ships/';
         this.embarksUrl = baseUrl + 'classes/Embarkations/';
+        this.embarkUrl = baseUrl + 'classes/Embarkation/';
         this.requester = requester;
         this.headers = headers;
     }
@@ -197,7 +198,9 @@ app.seamanModel = (function() {
     SeamanModel.prototype.listAllSeamansAvailable = function()
     {
         console.log("available check");
-        return this.requester.get(this.serviceUrl + '?limit=50&count=50&where={"Available": true }', this.headers.getHeaders(true));
+        var asd = '?where={"Embarked":true, "Disembarked":true}&order=-Disembarking_date';
+
+        return this.requester.get(this.embarkUrl + asd, this.headers.getHeaders(true));
     }
 
     SeamanModel.prototype.addSeaman = function(data) {
