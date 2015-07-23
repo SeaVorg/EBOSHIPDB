@@ -1,0 +1,25 @@
+{ "results": [
+	{
+        "Board_evaluation": "57",
+        "Disembarked": true,
+        "Disembarking_date": {
+                "__type": "Date",
+                "iso": "2010-04-26T12:30:00.000Z"
+        },
+        "Disembarking_port": "SIN",
+        "Embarked": true,
+        "Embarking_date": {
+                "__type": "Date",
+                "iso": "2009-06-26T12:30:00.000Z"
+        },
+        "Embarking_port": "TEE",
+        "General_notes": "x Soljacic: good ab + x Stoykov: 67 Hard worker, disciplined and decent man + x Perovic: 68 good worker, responsible, very good perfomance",
+        "Rank": "AB    ",
+        "SeamanID": "100",
+        "Ship": "KAVA",
+        "createdAt": "2015-07-11T11:21:10.836Z",
+        "objectId": "SkLqf0HJG8",
+        "updatedAt": "2015-07-11T11:21:10.836Z"
+    }
+	]
+}
