@@ -5,7 +5,7 @@ app.seamanModel = (function() {
         this.serviceUrl = baseUrl + 'classes/Seaman/';
         this.ranksUrl = baseUrl + 'classes/Ranks/';
         this.shipsUrl = baseUrl + 'classes/Ships/';
-        this.embarksUrl = baseUrl + 'classes/Embarkations/';
+        this.embarksUrl = baseUrl + 'classes/Embarkation/';
         this.embarkUrl = baseUrl + 'classes/Embarkation/';
         this.requester = requester;
         this.headers = headers;
@@ -277,7 +277,7 @@ app.seamanModel = (function() {
     SeamanModel.prototype.listAllSeamanRaces = function(id)
     {
         console.log(" model, seaman races ");
-        var asd = '?where={"SeamanID": "'+id+'" }&limit=35770&skip=0&order=Disembarking_date';
+        var asd = '?where={"SeamanID": "'+id+'" }&limit=35770&skip=0&order=-Embarking_date';
         return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
      
     }
