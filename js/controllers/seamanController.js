@@ -591,7 +591,7 @@ app.seamanController = (function () {
                     //console.log('read here');
                     //console.log(data5);
                     //console.log('stop reading');
-                    _this.viewBag.listSeamans.loadSeamansViewCrew(selector, data5);
+                    _this.viewBag.listSeamans.loadSeamansViewCrewHax(selector, data5);
                 });
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
@@ -631,7 +631,7 @@ app.seamanController = (function () {
                     //console.log('read here');
                     //console.log(data5);
                     //console.log('stop reading');
-                    _this.viewBag.listSeamans.loadSeamansViewCrew(selector, data5);
+                    _this.viewBag.listSeamans.loadSeamansViewCrewHax(selector, data5);
                 });
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
@@ -671,7 +671,7 @@ app.seamanController = (function () {
                     //console.log('read here');
                     //console.log(data5);
                     //console.log('stop reading');
-                    _this.viewBag.listSeamans.loadSeamansViewCrew(selector, data5);
+                    _this.viewBag.listSeamans.loadSeamansViewCrewHax(selector, data5);
                 });
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
@@ -712,7 +712,7 @@ app.seamanController = (function () {
                     //console.log('read here');
                     //console.log(data5);
                     //console.log('stop reading');
-                    _this.viewBag.listSeamans.loadSeamansViewCrew(selector, data5);
+                    _this.viewBag.listSeamans.loadSeamansViewCrewHax(selector, data5);
                 });
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {

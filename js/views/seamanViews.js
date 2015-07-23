@@ -7,7 +7,8 @@ app.seamanViews = (function() {
         }
         this.listSeamans = {
             loadSeamansView: loadSeamansView,
-            loadSeamansViewCrew : loadSeamansViewCrew
+            loadSeamansViewCrew : loadSeamansViewCrew,
+            loadSeamansViewCrewHax: loadSeamansViewCrewHax
         };
 
         this.addSeaman = {
@@ -129,6 +130,15 @@ app.seamanViews = (function() {
     function loadSeamansViewCrew (selector, data) {
         console.log("in load seaman view crew");
         $.get('templates/seamanListCrew.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            $(selector).html(outHtml);
+        });
+
+    }
+
+    function loadSeamansViewCrewHax (selector, data) {
+        console.log("in load seaman view crew");
+        $.get('templates/seamanListCrewHax.html', function (template) {
             var outHtml = Mustache.render(template, data);
             $(selector).html(outHtml);
         });
