@@ -216,6 +216,34 @@ app.seamanModel = (function() {
         return this.requester.remove(this.serviceUrl + seamanId, this.headers.getHeaders(true));
     };
 
+    //--------------- new stuff
+
+    SeamanModel.prototype.listAllSeamansCrewHax = function() {
+        console.log(" in hax");
+         var asd = '?where={ "Disembarked" : false }&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+    SeamanModel.prototype.listAllSeamansCrewNameShipHax = function(name,ship) {
+        console.log(" in hax ");
+         var asd = '?where={"Ship" : "'+ship+'", "Disembarked" : false, "SeamanID":{"$select": {"query":{"className":"Seaman","where":{"Name" : {"$regex":"'+name+'", "$options" :"i" }}}, "key":"SeamanID"}} }&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
+    SeamanModel.prototype.listAllSeamansCrewShipHax = function(ship) {
+        console.log(" in hax " + ship);
+         var asd = '?where={ "Disembarked" : false , "Ship" : "'+ship+'"}&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+    SeamanModel.prototype.listAllSeamansCrewNameHax = function(name) {
+        console.log(" in hax ");
+         var asd = '?where={ "Disembarked" : false, "SeamanID":{"$select": {"query":{"className":"Seaman","where":{"Name" : {"$regex":"'+name+'", "$options" :"i" }}}, "key":"SeamanID"}} }&limit=35770&skip=0';
+       return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+       // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
+    };
+
     return {
         load: function(baseUrl, requester, headers) {
             return new SeamanModel(baseUrl, requester, headers);

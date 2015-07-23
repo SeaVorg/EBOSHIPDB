@@ -62,29 +62,32 @@ var app = app || {};
    
 
 
-    selector = '#ships';
-     seamanController.listShips(selector);
+     selector = '#ships';
+     seamanController.listShipsAll(selector);
 
     selector = '#content';
 
     var as = app.getParam("who");
-    var ship = app.getParam("ship");
-    app.asz = as;
-    app.shipz = ship;
+    var bz = app.getParam("ship");
+    app.shipsNames=[];
     console.log(as);
-    console.log(ship);
-
-    if(ship!=null)
-    {
-        if(as!=null) seamanController.listAllSeamansNameShips(selector, as, ship);
-        else seamanController.listAllSeamansShips(selector, ship);
+    console.log(bz);
+    if(bz==null) bz='ALL';
+    app.asz = as;
+    app.bsz = bz;
+    
+    if(bz=='ALL'){
+    if(as!=null) seamanController.listAllSeamansNameEmbark(selector, as);
+    else seamanController.listAllSeamansEmbark(selector);
     }
-    //if(as!=null) seamanController.listAllSeamansNameCrew(selector, as);
-    //else seamanController.listAllSeamansCrew(selector);
+    else{
+        if(as!=null) seamanController.listAllSeamansNameEmbarkShip(selector, as, bz);
+        else seamanController.listAllSeamansEmbarkShip(selector, bz);
+    }
 
     
 
-    app.shitbtn = function()
+    app.shitbtn = function(name)
     {
         window.location.search='?who='+$('#search')[0].value+'&ship='+$('#ships').val();
     }
@@ -95,7 +98,10 @@ var app = app || {};
                 }
             });
 
-    
+    app.addstuff = function(name, name2)
+    {
+        app.shipsNames[name]=name2;
+    }
     //if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){
     // selector = '#ranks';
     // seamanController.listRanks(selector);
