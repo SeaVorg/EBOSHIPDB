@@ -545,11 +545,33 @@ app.seamanController = (function () {
             })
     };
 
+    SeamanController.prototype.editRace = function (seamanId, data) {
+        return this.model.editRace(seamanId, data)
+            .then(function() {
+                //window.location.replace('#/mySeamans/');
+                app.success_msg("Successfully edited seaman race!");
+            }, function(error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
     SeamanController.prototype.deleteSeaman = function (seamanId) {
         return this.model.deleteSeaman(seamanId)
                     .then(function() {
                         //window.location.replace('#/mySeamans/');
                         app.success_msg("Successfully deleted seaman!");
+                        app.reloadz();
+                    }, function(error) {
+                       // window.location.replace('#/mySeamans/');
+                        app.error_msg(error.responseJSON.error);
+                    })
+    };
+
+    SeamanController.prototype.deleteRace = function (seamanId) {
+        return this.model.deleteRace(seamanId)
+                    .then(function() {
+                        //window.location.replace('#/mySeamans/');
+                        app.success_msg("Successfully deleted Race!");
                         app.reloadz();
                     }, function(error) {
                        // window.location.replace('#/mySeamans/');
@@ -940,6 +962,32 @@ app.seamanController = (function () {
             .then(function (data) {
                 console.log(data);
                 _this.viewBag.listRaces.loadRacesView(selector, data);
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+     SeamanController.prototype.loadShips = function (stuff) {
+        var _this = this;
+        console.log("controller load ships");
+        return this.model.listShipsAll()
+            .then(function (data) {
+                console.log(data);
+                app.ships=data;
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.loadPorts = function (stuff) {
+        var _this = this;
+        console.log("controller load ports");
+        return this.model.listPorts()
+            .then(function (data) {
+                console.log(data);
+                app.ports=data;
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);

@@ -122,6 +122,18 @@ app.seamanViews = (function() {
         });
     }
 
+    function loadShipsViewValue (selector, data,value)
+    {
+        console.log("in load ships view");
+        $.get('templates/shipsStuff.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            //console.log(outHtml);
+            $(selector).html(outHtml);
+        }).then(function(){
+            $(selector)[0].value=value;
+        });
+    }
+
 
     function loadShipsView (selector, data)
     {

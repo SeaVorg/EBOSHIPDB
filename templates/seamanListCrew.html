@@ -19,7 +19,19 @@
         <td>{{Name}}</td>
         <td>{{Rank}}</td>
         <td>{{Ship}}</td>
-        <td>{{Embarking_date}}</td>
+        <td><input type="date" id="Embark_date{{objectId}}"></input></td>
+        <script>
+        var date2 = new Date("{{#Embarking_date}}{{iso}}{{/Embarking_date}}");
+        console.log(date2);
+        console.log('#Embark_date{{objectId}}' + ' getting date set')
+        var month = (date2.getMonth()+1);
+        if(month<10) month="0" + month;
+        var date = date2.getDate();
+        if(date<10) date = "0"+date;
+        var datestring = date2.getFullYear()+"-"+month+"-"+date;
+        console.log(datestring);
+        $("#Embark_date{{objectId}}").val(datestring);
+        </script>
         <td>{{Nationality}}</td>
         <td>{{Birth_place}}</td>
         <td><img src="./img/cross.png" id="theimg{{objectId}}"></td>

@@ -1,4 +1,4 @@
-
+<a href="javascript:app.addSeamanEmbarkation();" class="link"><img src="./img/add_user.png"></a>
 <table id="results">
     <tr>
         <th>Edit</th>
@@ -15,7 +15,7 @@
     {{#results}}
     <tr>
         <td>
-            <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/edit.png"></a>
+            <a href="javascript:app.editSeamanRace('{{objectId}}');" class="link"><img src="./img/edit.png"></a>
         </td>
         <td>{{Ship}}</td>
         <td><input type='date' id='Embark_date{{objectId}}'></td>
@@ -51,9 +51,9 @@
         console.log(datestring);
         $("#Disembark_date{{objectId}}").val(datestring);
         </script>
-        <td>{{General_notes}}</td>
+        <td><textarea id="Notes{{objectId}}">{{General_notes}}</textarea></td>
         <td>
-            <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
+            <a href="javascript:app.deleteSeamanRace('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
         </td>
     </tr>
     {{/results}}

@@ -58,16 +58,62 @@ var app = app || {};
 
     var selector = '#ranks';
     //seamanController.listAllSeamans(selector);
+
+
+    app.editSeamanRace = function ( id )
+    {
+        console.log("editing");
+        var date1 = new Date($("#Embark_date"+id).val());
+        var date2 = new Date($("#Disembark_date"+id).val());
+
+        var d1 = {
+            __type: "Date",
+            iso: date1.toISOString()
+        }
+
+        var d2 = {
+            __type: "Date",
+            iso: date2.toISOString()
+        }
+
+
+        var data = 
+        {
+            Embarking_date: d1,
+            Embarked: $("#embarked"+id).prop('checked'),
+            Disembarking_date: d2,
+            Disembarked: $("#disembarked"+id).prop('checked'),
+            General_notes: $("#Notes"+id).val()
+        };
+        console.log(data);
+
+        seamanController.editRace(id,data);
+    }
    
 
     selector = '#container';
     var as = app.getParam("who");
     console.log(as);
 
+    app.addSeamanEmbarkation = function()
+    {
+        self.location='addembarkation.html?who='+as;
+    }
+    
     selector = '#content';
     if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){
      selector = '#ranks';
      seamanController.listRanks(selector).then(function(){
+        app.ports=[];
+        app.ships=[];
+
+        seamanController.loadShips(app.ships);
+        seamanController.loadPorts(app.ports);
+
+
+
+     }
+        ).then(function(){
         $(selector)[0].value=app.seamanRank;
             //console.log("attemptiong hook");
             // checkboxes

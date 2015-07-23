@@ -7,6 +7,7 @@ app.seamanModel = (function() {
         this.shipsUrl = baseUrl + 'classes/Ships/';
         this.embarksUrl = baseUrl + 'classes/Embarkation/';
         this.embarkUrl = baseUrl + 'classes/Embarkation/';
+        this.portsUrl = baseUrl + 'classes/Ports/';
         this.requester = requester;
         this.headers = headers;
     }
@@ -19,6 +20,10 @@ app.seamanModel = (function() {
     SeamanModel.prototype.listRanks = function ()
     {
         return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
+    }
+    SeamanModel.prototype.listPorts = function()
+    {
+        return this.requester.get(this.portsUrl+'&limit=1000&skip=0', this.headers.getHeaders(true));
     }
     SeamanModel.prototype.listShips = function ()
     {
@@ -237,8 +242,16 @@ app.seamanModel = (function() {
         return this.requester.post(this.serviceUrl, this.headers.getHeaders(true), data);
     };
 
+    SeamanModel.prototype.editRace = function(seamanId, data) {
+        return this.requester.put(this.embarksUrl + seamanId, this.headers.getHeaders(true), data);
+    };
+
     SeamanModel.prototype.editSeaman = function(seamanId, data) {
         return this.requester.put(this.serviceUrl + seamanId, this.headers.getHeaders(true), data);
+    };
+
+    SeamanModel.prototype.deleteRace = function(seamanId) {
+        return this.requester.remove(this.ebmarksUrl + seamanId, this.headers.getHeaders(true));
     };
 
     SeamanModel.prototype.deleteSeaman = function(seamanId) {
