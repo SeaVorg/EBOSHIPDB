@@ -20,15 +20,15 @@
         <td>{{Ship}}</td>
         <td>{{Embarking_date}}</td>
         <td>{{Embarking_port}}</td>
-        <td><input type='checkbox' id='embarked'></td>
+        <td><input type='checkbox' id='embarked{{objectId}}'></td>
         <script>
-        $( "#embarked").prop('checked', {{Embarked}});
+        $( "#embarked{{objectId}}").prop('checked', {{Embarked}});
         </script>
         <td>{{Disembarking_date}}</td>
         <td>{{Disembarking_port}}</td>
-        <td><input type='checkbox' id='disembarked'></td>
+        <td><input type='checkbox' id='disembarked{{objectId}}'></td>
         <script>
-        $( "#disembarked").prop('checked', {{Disembarked}});
+        $( "#disembarked{{objectId}}").prop('checked', {{Disembarked}});
         </script>
         <td>{{Notes}}</td>
         <td>
