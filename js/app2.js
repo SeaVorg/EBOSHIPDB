@@ -78,12 +78,12 @@ var app = app || {};
 
     if(rankz=='ALL')
     {
-    if(as!=null) seamanController.listAllSeamansNameAvailable(selector, as);
+    if(as!=null) seamanController.listAllSeamansAvailableName(selector, as);
     else seamanController.listAllSeamansAvailable(selector);
     }
     else
     {
-        if(as!=null) seamanController.listAllSeamansNameAvailableRank(selector, as,rankz);
+        if(as!=null) seamanController.listAllSeamansAvailableRankName(selector, as,rankz);
         else seamanController.listAllSeamansAvailableRank(selector,rankz);
     }
 

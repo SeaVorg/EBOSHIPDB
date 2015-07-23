@@ -144,7 +144,7 @@ app.seamanController = (function () {
             })
     };
 
-    SeamanController.prototype.listAllSeamansNameAvailableRank = function (selector, name, rank) {
+    SeamanController.prototype.listAllSeamansNameAvailableRankOld = function (selector, name, rank) {
         var _this = this;
         console.log("all seamans available name");
         return this.model.listAllSeamansCrew()
@@ -178,7 +178,7 @@ app.seamanController = (function () {
             })
     };
 
-    SeamanController.prototype.listAllSeamansNameAvailable = function (selector, name) {
+    SeamanController.prototype.listAllSeamansNameAvailableOld = function (selector, name) {
         var _this = this;
         console.log("all seamans available name");
         return this.model.listAllSeamansCrew()
@@ -212,7 +212,7 @@ app.seamanController = (function () {
             })
     };
 
-    SeamanController.prototype.listAllSeamansAvailableRank = function (selector,rank) {
+    SeamanController.prototype.listAllSeamansAvailableRankOld = function (selector,rank) {
         var _this = this;
         console.log("controller mofo called list all seamans available rank");
         console.log("all seamans");
@@ -731,6 +731,159 @@ app.seamanController = (function () {
         console.log("controller mofo called list all seamans available");
         console.log("all seamans");
         return this.model.listAllSeamansAvailable()
+            .then(function (data) {
+                var ids = [];
+               var stuff =[];
+               var stuff2 =[];
+               var asd=0;
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var datestr = ""+ data.results[i].Disembarking_date.iso[8]+data.results[i].Disembarking_date.iso[9]+"/"+data.results[i].Disembarking_date.iso[5] + data.results[i].Disembarking_date.iso[6] +"/" + data.results[i].Disembarking_date.iso[0]+ data.results[i].Disembarking_date.iso[1] + data.results[i].Disembarking_date.iso[2] + data.results[i].Disembarking_date.iso[3] 
+                        var dateob = new Date(data.results[i].Disembarking_date.iso);
+                        var datestr = dateob.toUTCString().substring(0,16);
+                        if(stuff[str]==null) { stuff[str]=asd; stuff2[str] = datestr; asd++; }
+                        ids.push(str);
+                        
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                console.log(ids);
+                console.log(stuff);
+                _this.model.listSeamansIds(ids).then(function(data5){
+                    
+                    var ress = [];
+                    console.log('read here');
+                    console.log(data5);
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        ress[stuff[data5.results[i].SeamanID]]=data5.results[i];
+                        ress[stuff[data5.results[i].SeamanID]].Disembarking_date = stuff2[data5.results[i].SeamanID];
+                    }
+                     var data6 = {
+                        results : ress
+                    }
+                    console.log(ress);
+                    console.log(data6);
+                    console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewAvail(selector, data6);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+    SeamanController.prototype.listAllSeamansAvailableName = function (selector,name) {
+        var _this = this;
+        console.log("controller mofo called list all seamans available");
+        console.log("all seamans");
+        return this.model.listAllSeamansAvailableName(name)
+            .then(function (data) {
+                var ids = [];
+               var stuff =[];
+               var stuff2 =[];
+               var asd=0;
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var datestr = ""+ data.results[i].Disembarking_date.iso[8]+data.results[i].Disembarking_date.iso[9]+"/"+data.results[i].Disembarking_date.iso[5] + data.results[i].Disembarking_date.iso[6] +"/" + data.results[i].Disembarking_date.iso[0]+ data.results[i].Disembarking_date.iso[1] + data.results[i].Disembarking_date.iso[2] + data.results[i].Disembarking_date.iso[3] 
+                        var dateob = new Date(data.results[i].Disembarking_date.iso);
+                        var datestr = dateob.toUTCString().substring(0,16);
+                        if(stuff[str]==null) { stuff[str]=asd; stuff2[str] = datestr; asd++; }
+                        ids.push(str);
+                        
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                console.log(ids);
+                console.log(stuff);
+                _this.model.listSeamansIds(ids).then(function(data5){
+                    
+                    var ress = [];
+                    console.log('read here');
+                    console.log(data5);
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        ress[stuff[data5.results[i].SeamanID]]=data5.results[i];
+                        ress[stuff[data5.results[i].SeamanID]].Disembarking_date = stuff2[data5.results[i].SeamanID];
+                    }
+                     var data6 = {
+                        results : ress
+                    }
+                    console.log(ress);
+                    console.log(data6);
+                    console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewAvail(selector, data6);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+    SeamanController.prototype.listAllSeamansAvailableRank = function (selector,rank) {
+        var _this = this;
+        console.log("controller mofo called list all seamans available rank");
+        console.log("all seamans");
+        return this.model.listAllSeamansAvailableRank(rank)
+            .then(function (data) {
+                var ids = [];
+               var stuff =[];
+               var stuff2 =[];
+               var asd=0;
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var datestr = ""+ data.results[i].Disembarking_date.iso[8]+data.results[i].Disembarking_date.iso[9]+"/"+data.results[i].Disembarking_date.iso[5] + data.results[i].Disembarking_date.iso[6] +"/" + data.results[i].Disembarking_date.iso[0]+ data.results[i].Disembarking_date.iso[1] + data.results[i].Disembarking_date.iso[2] + data.results[i].Disembarking_date.iso[3] 
+                        var dateob = new Date(data.results[i].Disembarking_date.iso);
+                        var datestr = dateob.toUTCString().substring(0,16);
+                        if(stuff[str]==null) { stuff[str]=asd; stuff2[str] = datestr; asd++; }
+                        ids.push(str);
+                        
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                console.log(ids);
+                console.log(stuff);
+                _this.model.listSeamansIds(ids).then(function(data5){
+                    
+                    var ress = [];
+                    console.log('read here');
+                    console.log(data5);
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        ress[stuff[data5.results[i].SeamanID]]=data5.results[i];
+                        ress[stuff[data5.results[i].SeamanID]].Disembarking_date = stuff2[data5.results[i].SeamanID];
+                    }
+                     var data6 = {
+                        results : ress
+                    }
+                    console.log(ress);
+                    console.log(data6);
+                    console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewAvail(selector, data6);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+    SeamanController.prototype.listAllSeamansAvailableRankName = function (selector,rank,name) {
+        var _this = this;
+        console.log("controller mofo called list all seamans available rank");
+        console.log("all seamans");
+        return this.model.listAllSeamansAvailableRankName(rank,name)
             .then(function (data) {
                 var ids = [];
                var stuff =[];

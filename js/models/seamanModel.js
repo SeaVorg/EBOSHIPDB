@@ -195,6 +195,31 @@ app.seamanModel = (function() {
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
+    SeamanModel.prototype.listAllSeamansAvailableRankName = function(rank,name)
+    {
+        console.log("available check");
+        var asd = '?where={"Embarked":true, "Disembarked":true, "Rank" : "'+rank+'","SeamanID":{"$select": {"query":{"className":"Seaman","where":{"Name" : {"$regex":"'+name+'", "$options" :"i" }}}, "key":"SeamanID"}} }&order=-Disembarking_date';
+
+        return this.requester.get(this.embarkUrl + asd, this.headers.getHeaders(true));
+    }
+
+    SeamanModel.prototype.listAllSeamansAvailableName = function(name)
+    {
+        console.log("available check");
+        var asd = '?where={"Embarked":true, "Disembarked":true, "SeamanID":{"$select": {"query":{"className":"Seaman","where":{"Name" : {"$regex":"'+name+'", "$options" :"i" }}}, "key":"SeamanID"}} }&order=-Disembarking_date';
+
+        return this.requester.get(this.embarkUrl + asd, this.headers.getHeaders(true));
+    }
+
+    SeamanModel.prototype.listAllSeamansAvailableRank = function(rank)
+    {
+        console.log("available check");
+        var asd = '?where={"Embarked":true, "Disembarked":true, "Rank" : "'+rank+'"}&order=-Disembarking_date';
+
+        return this.requester.get(this.embarkUrl + asd, this.headers.getHeaders(true));
+    }
+
+
     SeamanModel.prototype.listAllSeamansAvailable = function()
     {
         console.log("available check");
