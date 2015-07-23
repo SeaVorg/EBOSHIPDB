@@ -36,7 +36,23 @@ app.seamanViews = (function() {
         {
             loadShipmansView: loadShipmansView
         }
+        this.listRaces = {
+            loadRacesView: loadRacesView
+        }
     }
+
+     function loadRacesView(selector, data)
+    {
+        console.log("in load races view");
+        $.get('templates/seamanRaces.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            
+            $(selector).html(outHtml);
+        }).then(function(){
+            //$(selector)[0].value=app.seamanRank;
+        });
+    }
+
 
     function loadShipmansView(selector, data)
     {

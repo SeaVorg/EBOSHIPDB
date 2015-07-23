@@ -203,6 +203,7 @@ app.seamanModel = (function() {
         return this.requester.get(this.embarkUrl + asd, this.headers.getHeaders(true));
     }
 
+
     SeamanModel.prototype.listAllSeamansAvailableName = function(name)
     {
         console.log("available check");
@@ -271,6 +272,15 @@ app.seamanModel = (function() {
        return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
+
+
+    SeamanModel.prototype.listAllSeamanRaces = function(id)
+    {
+        console.log(" model, seaman races ");
+        var asd = '?where={"SeamanID": "'+id+'" }&limit=35770&skip=0&order=Disembarking_date';
+        return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+     
+    }
 
     return {
         load: function(baseUrl, requester, headers) {

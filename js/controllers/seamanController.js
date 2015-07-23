@@ -932,6 +932,19 @@ app.seamanController = (function () {
     };
     //==================================================================
     //==================================================================
+    //======================= list races ===============================
+    SeamanController.prototype.listRaces = function (selector,id) {
+        var _this = this;
+        console.log("controller listRaces");
+        return this.model.listAllSeamanRaces(id)
+            .then(function (data) {
+                console.log(data);
+                _this.viewBag.listRaces.loadRacesView(selector, data);
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
 
     return {
         load: function (model, views) {

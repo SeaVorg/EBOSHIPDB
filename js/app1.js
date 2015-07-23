@@ -115,7 +115,11 @@ var app = app || {};
                 
                 return false;
             })
+        }).then(function()
+        {
+            selector='#races';
+            if(as!=null) seamanController.listRaces(selector,$('#SeamanID').val());
         }).done();
     });
-    
+
 }());
