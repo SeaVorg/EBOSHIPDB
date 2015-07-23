@@ -195,11 +195,11 @@ app.seamanModel = (function() {
        // return this.requester.get(this.serviceUrl + '?where={"author": "' + sessionStorage['fullName'] + '"}&limit=10&count=10&skip='+page, this.headers.getHeaders(true));
     };
 
-    SeamanModel.prototype.listAllSeamansAvailableRankName = function(rank,name)
+    SeamanModel.prototype.listAllSeamansAvailableRankName = function(name,rank)
     {
         console.log("available check");
-        var asd = '?where={"Embarked":true, "Disembarked":true, "Rank" : "'+rank+'","SeamanID":{"$select": {"query":{"className":"Seaman","where":{"Name" : {"$regex":"'+name+'", "$options" :"i" }, "Rank" : "'+rank+'"}}, "key":"SeamanID"}} }&order=-Disembarking_date';
-
+        var asd = '?where={"Embarked":true, "Disembarked":true,"SeamanID":{"$select": {"query":{"className":"Seaman","where":{ "Rank" : "'+rank+'", "Name" : {"$regex":"'+name+'", "$options" :"i" }}}, "key":"SeamanID"}} }&order=-Disembarking_date';
+        console.log(asd);
         return this.requester.get(this.embarkUrl + asd, this.headers.getHeaders(true));
     }
 
