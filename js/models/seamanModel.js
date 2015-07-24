@@ -8,6 +8,7 @@ app.seamanModel = (function() {
         this.embarksUrl = baseUrl + 'classes/Embarkation/';
         this.embarkUrl = baseUrl + 'classes/Embarkation/';
         this.portsUrl = baseUrl + 'classes/Ports/';
+        this.countriesUrl = baseUrl + 'classes/Countries/';
         this.requester = requester;
         this.headers = headers;
     }
@@ -21,13 +22,17 @@ app.seamanModel = (function() {
     {
         return this.requester.get(this.ranksUrl, this.headers.getHeaders(true));
     }
-    SeamanModel.prototype.listPorts = function()
+    SeamanModel.prototype.listPorts = function(country)
     {
-        return this.requester.get(this.portsUrl+'&limit=1000&skip=0', this.headers.getHeaders(true));
+        return this.requester.get(this.portsUrl+'?where={"Country":"'+country+'"}&limit=999&skip=0', this.headers.getHeaders(true));
     }
     SeamanModel.prototype.listShips = function ()
     {
         return this.requester.get(this.shipsUrl, this.headers.getHeaders(true));
+    }
+    SeamanModel.prototype.listCountries = function ()
+    {
+        return this.requester.get(this.countriesUrl+'?limit=255&skip=0', this.headers.getHeaders(true));
     }
     SeamanModel.prototype.listShipsAll = function ()
     {
@@ -240,6 +245,14 @@ app.seamanModel = (function() {
         console.log("adding seaman with data, model ");
         console.log(data);
         return this.requester.post(this.serviceUrl, this.headers.getHeaders(true), data);
+    };
+
+    SeamanModel.prototype.addSeamanRace = function(data) {
+        //console.log("add seaman called");
+       
+        console.log("adding seaman race with data, model ");
+        console.log(data);
+        return this.requester.post(this.embarksUrl, this.headers.getHeaders(true), data);
     };
 
     SeamanModel.prototype.editRace = function(seamanId, data) {

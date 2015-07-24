@@ -59,7 +59,10 @@ var app = app || {};
     var selector = '#ranks';
     //seamanController.listAllSeamans(selector);
 
-
+    app.deleteSeamanRace = function(id)
+    {
+        seamanController.deleteRace(id);
+    }
     app.editSeamanRace = function ( id )
     {
         console.log("editing");
@@ -99,7 +102,7 @@ var app = app || {};
     {
         self.location='addembarkation.html?who='+as;
     }
-    
+
     selector = '#content';
     if(as!=null) seamanController.loadSeamanView(selector,as).then(function(){
      selector = '#ranks';

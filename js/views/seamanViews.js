@@ -39,6 +39,13 @@ app.seamanViews = (function() {
         this.listRaces = {
             loadRacesView: loadRacesView
         }
+        this.listCountries={
+            loadCountriesView: loadCountriesView
+        }
+        this.listPorts = 
+        {
+            loadPortsView: loadPortsView
+        }
     }
 
      function loadRacesView(selector, data)
@@ -53,6 +60,17 @@ app.seamanViews = (function() {
         });
     }
 
+    function loadPortsView(selector, data)
+    {
+        console.log("in load races view");
+        $.get('templates/portsStuff.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            
+            $(selector).html(outHtml);
+        }).then(function(){
+            //$(selector)[0].value=app.seamanRank;
+        });
+    }
 
     function loadShipmansView(selector, data)
     {
@@ -144,6 +162,20 @@ app.seamanViews = (function() {
             $(selector).html(outHtml);
         }).then(function(){
             //$(selector)[0].value=app.seamanRank;
+        });
+    }
+
+    function loadCountriesView (selector1, selector2, data)
+    {
+        console.log("in load countries view");
+        $.get('templates/countriesStuff.html', function (template) {
+            var outHtml = Mustache.render(template, data);
+            //console.log(outHtml);
+            $(selector1).html(outHtml);
+            $(selector2).html(outHtml);
+        }).then(function(){
+            app.updatePort1($(selector1).val());
+            app.updatePort2($(selector1).val());
         });
     }
 
