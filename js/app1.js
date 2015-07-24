@@ -68,15 +68,20 @@ var app = app || {};
         console.log("editing");
         var date1 = new Date($("#Embark_date"+id).val());
         var date2 = new Date($("#Disembark_date"+id).val());
+        var d1;
 
-        var d1 = {
+        if($("#Embark_date"+id).val()!=''){
+         d1 = {
             __type: "Date",
             iso: date1.toISOString()
         }
-
-        var d2 = {
+        }
+        var d2;
+        if($("#Disembark_date"+id).val()!=''){
+            d2 = {
             __type: "Date",
             iso: date2.toISOString()
+        }
         }
 
 
