@@ -11,6 +11,21 @@ app.seamanController = (function () {
         this.viewBag.addSeaman.addSeamanView(selector);
     };
 
+    SeamanController.prototype.loadSeamanView2 = function(selector, id) {
+       var _this = this;
+        console.log("controller mofo called load seaman");
+        return this.model.listAllSeamansId(id)
+            .then(function (data) {
+                console.log(data.results);
+                app.seamanRank = data.results[0].Rank;
+                app.seamanID = data.results[0].SeamanID;
+                console.log('"'+app.seamanRank+'"');
+                //_this.viewBag.editSeaman.editSeamanView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
     SeamanController.prototype.loadSeamanView = function(selector, id) {
        var _this = this;
         console.log("controller mofo called load seaman");
@@ -59,6 +74,34 @@ app.seamanController = (function () {
         return this.model.listRanksAll()
             .then(function (data) {
                 _this.viewBag.listRanks.loadRanksViewAll(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listCountries  = function (selector1, selector2)
+    {   
+        var _this = this;
+        console.log("controller mofo called list all countries");
+        return this.model.listCountries()
+            .then(function (data) {
+                console.log("logging date");
+                console.log(data);
+                _this.viewBag.listCountries.loadCountriesView(selector1, selector2, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.listPorts  = function (selector, country)
+    {   
+        var _this = this;
+        console.log("controller mofo called list all ports "+country);
+        return this.model.listPorts(country)
+            .then(function (data) {
+                console.log("logging date");
+                console.log(data);
+                _this.viewBag.listPorts.loadPortsView(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
             })
@@ -530,6 +573,17 @@ app.seamanController = (function () {
             .then(function() {
                 //window.location.replace('#/mySeamans/');
                 app.success_msg("Successfully added new seaman!");
+            }, function(error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+
+    SeamanController.prototype.addSeamanRace = function (data) {
+        console.log("controller add seaman race");
+        return this.model.addSeamanRace(data)
+            .then(function() {
+                //window.location.replace('#/mySeamans/');
+                app.success_msg("Successfully added new seaman race!");
             }, function(error) {
                 app.error_msg(error.responseJSON.error);
             })

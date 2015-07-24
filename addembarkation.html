@@ -25,19 +25,52 @@
 		<div class="main-content">
 			Add Embarkation<br>
 			<article>
-				Seaman ID<input type="text" id="Seamanid">
+				Seaman ID<input type="text" id="SeamanID">
 				Rank<select id="Board_rank"></select>
 				Ship<select id="Onship"></select>
 			</article>
 			<article>
-				Start<input type="text" id="Start_date"><select id="Start_port"></select>
+				Start<input type="date" id="Start_date">
+				Embarked<input type="checkbox" id="Embarked"></input>
+				Country<select id="Start_country"></select>
+				Port<select id="Start_port"></select>
 			</article>
 			<article>
-				End<input type="text" id="End_date"><select id="End_port"></select></select>
+				End<input type="date" id="End_date">
+				Disembarked<input type="checkbox" id="Disembarked"></input>
+				Country<select id="End_country"></select>
+				Port<select id="End_port"></select>
 			</article>
 			<article>
-				Notes<input type="text" id="Notes">
+				Notes<textarea rows="3" cols="50" id="Notes"></textarea>
+			</article>
+			<article>
+				<input type="submit" value="Save" id="editSeamanButton">
 			</article>
 		</div>
+
+		<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/q.js"></script>
+	<script src="js/libs/mustache.min.js"></script>
+	<script src="js/libs/sammy.js"></script>
+	<script src="js/libs/jquery.noty.packaged.js"></script>
+	<script src="js/libs/jquery.simplePagination.js"></script>
+	
+	
+	<script src="js/models/headers.js"></script>
+	<script src="js/models/ajaxRequest.js"></script>
+	
+	<script src="js/models/userModel.js"></script>
+	<script src="js/models/seamanModel.js"></script>
+	
+	<script src="js/views/homeViews.js"></script>
+	<script src="js/views/seamanViews.js"></script>
+	<script src="js/views/userViews.js"></script>
+	
+	<script src="js/controllers/homeController.js"></script>
+	<script src="js/controllers/userController.js"></script>
+	<script src="js/controllers/seamanController.js"></script>
+	
+	<script src="js/addembark.js"></script>
 	</body>
 </html>
