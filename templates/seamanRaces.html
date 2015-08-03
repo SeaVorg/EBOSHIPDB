@@ -1,7 +1,10 @@
-<a href="javascript:app.addSeamanEmbarkation();" class="link"><img src="./img/add_user.png"></a>
+<div class="races">
+    <div class="addemb">
+<a href="javascript:app.addSeamanEmbarkation();" class="link">Embark<img src="./img/plus.png"></a>
+</div>
 <table id="results">
     <tr>
-        <th>Edit</th>
+        <th>Save</th>
         <th>Embarked Ship</th>
         <th>Embarkation date</th>
         <th>Embarkation port</th>
@@ -15,7 +18,7 @@
     {{#results}}
     <tr>
         <td>
-            <a href="javascript:app.editSeamanRace('{{objectId}}');" class="link"><img src="./img/edit.png"></a>
+            <a href="javascript:app.editSeamanRace('{{objectId}}');" class="link"><img src="./img/save.png"></a>
         </td>
         <td>{{Ship}}</td>
         <td><input type='date' id='Embark_date{{objectId}}'></td>
@@ -58,3 +61,4 @@
     </tr>
     {{/results}}
 </table>
+</div>
