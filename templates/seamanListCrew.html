@@ -1,7 +1,8 @@
 
 <table id="results">
     <tr>
-        <th>Edit</th>
+        <th>Save</th>
+        <th>Seaman</th>
         <th>Name</th>
         <th>Rank</th>
         <th>Embarked Ship</th>
@@ -13,6 +14,7 @@
     </tr>
     {{#results}}
     <tr>
+        <td><a href="#"><img src="./img/save.png"></a></td>
         <td>
             <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/edit.png"></a>
         </td>
@@ -24,13 +26,14 @@
         var date2 = new Date("{{#Embarking_date}}{{iso}}{{/Embarking_date}}");
         console.log(date2);
         console.log('#Embark_date{{objectId}}' + ' getting date set')
-        var month = (date2.getMonth()+1);
-        if(month<10) month="0" + month;
         var date = date2.getDate();
         if(date<10) date = "0"+date;
+        var month = (date2.getMonth()+1);
+        if(month<10) month="0" + month;
+
         var datestring = date2.getFullYear()+"-"+month+"-"+date;
         console.log(datestring);
-        $("#Embark_date{{objectId}}").val(datestring);
+        $("#Embark_date{{objectId}}").val(datestring.toISOString().substring(0, 10));
         </script>
         <td>{{Nationality}}</td>
         <td>{{Birth_place}}</td>
