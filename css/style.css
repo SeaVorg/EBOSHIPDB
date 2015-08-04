@@ -319,7 +319,6 @@ color:white;
 }
 #results td{
   border: 1px solid black;
-
 }
 #results  th{
   background-color:darkgrey;
@@ -329,10 +328,7 @@ color:white;
 #results img{
 width:30px;
 height:30px;
-
-
 }
-
 #back {
     position: fixed;
     left:0px;
