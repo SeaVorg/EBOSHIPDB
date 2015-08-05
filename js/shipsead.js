@@ -81,7 +81,7 @@ var app = app || {};
     else seamanController.listAllSeamansEmbark(selector);
     }
     else{
-        if(as!=null) seamanController.listAllSeamansNameEmbarkShip(selector, as, bz);
+        if(as!=null) seamllianController.listAllSeamansNameEmbarkShip(selector, as, bz);
         else seamanController.listAllSeamansEmbarkShip(selector, bz);
     }
 

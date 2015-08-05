@@ -203,6 +203,8 @@ border-color:red;
   text-align: center;
   left: 50%;
   right: 50%;
+
+  font-family: 'Sansita One' ,cursive;
 }
 .main-content ul{
   list-style:none;
