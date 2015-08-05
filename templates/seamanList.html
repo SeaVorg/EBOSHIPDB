@@ -5,8 +5,7 @@
         <th>Name</th>
         <th>Rank</th>
         <th>Nationality</th>
-        <th>Birthplace</th>
-        <th>Available</th>
+        <th>Birthplace</th
         <th>Delete</th>
     </tr>
     {{#results}}
@@ -20,8 +19,8 @@
         <td>{{Birth_place}}</td>
         <td><img src="./img/tick.png" id="theimg{{objectId}}"></td>
         <script>
-        var avail = {{Available}};
-        if(!avail)$("#theimg{{objectId}}")[0].src='./img/cross.png';
+       // var avail = {{Available}};
+        //if(!avail)$("#theimg{{objectId}}")[0].src='./img/cross.png';
         </script>
         <td>
             <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
