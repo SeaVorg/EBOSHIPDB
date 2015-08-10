@@ -100,15 +100,15 @@ var app = app || {};
     app.setCountriesFunc=1;
     app.setCountries = function()
     {
-        $('#Start_country').val(app.port1.Country);
-        $('#End_country').val(app.port2.Country);
+        if(app.port1!=null)$('#Start_country').val(app.port1.Country);
+        if(app.port2!=null)$('#End_country').val(app.port2.Country);
         
     }
     app.setPorts = function()
     {
      
-        $('#Start_port').val(app.port1.Port);
-        $('#End_port').val(app.port2.Port);
+        if(app.port1!=null)$('#Start_port').val(app.port1.Port);
+        if(app.port2!=null)$('#End_port').val(app.port2.Port);
     }
 
     app.FUCKYOU = function(data)
