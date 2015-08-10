@@ -264,7 +264,7 @@ app.seamanModel = (function() {
     };
 
     SeamanModel.prototype.deleteRace = function(seamanId) {
-        return this.requester.remove(this.ebmarksUrl + seamanId, this.headers.getHeaders(true));
+        return this.requester.remove(this.embarksUrl + seamanId, this.headers.getHeaders(true));
     };
 
     SeamanModel.prototype.deleteSeaman = function(seamanId) {

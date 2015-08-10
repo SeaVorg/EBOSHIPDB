@@ -139,36 +139,38 @@ var app = app || {};
 
 
             $('#editSeamanButton').click(function() {
-                //console.log("in add ");
+                console.log("in add ");
+
                 var date1 = new Date($("#Start_date").val());
-                var date2 = new Date($("#End_date").val());
+                //var date2 = new Date($("#End_date").val());
 
                 var d1;
 
-                if($("#Embark_date"+id).val()!=''){
+                if($("#Start_date").val()!=''){
                  d1 = {
                     __type: "Date",
                     iso: date1.toISOString()
                 }
                 }
                 var d2;
-                if($("#Disembark_date"+id).val()!=''){
-                    d2 = {
-                    __type: "Date",
-                    iso: date2.toISOString()
-                }
-                }
+                //if($("#End_date").val()!=''){
+                //    d2 = {
+                //    __type: "Date",
+                //    iso: date2.toISOString()
+                //}
+                //}
 
                 var data = {
                     SeamanID : $('#SeamanID').val(),
                     Rank : $('#Board_rank').val(),
                     Ship : $('#Onship').val(),
                     Embarked : $('#Embarked').prop('checked'),
-                    Disembarked : $('#Disembarked').prop('checked'),
+                    Disembarked: false,
+                    //Disembarked : $('#Disembarked').prop('checked'),
                     Embarking_date : d1,
-                    Disembarking_date : d2,
+                   //Disembarking_date : d2,
                     Embarking_port : $('#Start_port').val(),
-                    Disembarking_port : $('#End_port').val(),
+                    //Disembarking_port : $('#End_port').val(),
                     General_notes : $('#Notes').val()
                     
                 };
