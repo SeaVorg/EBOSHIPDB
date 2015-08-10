@@ -106,6 +106,11 @@ var app = app || {};
     app.addSeamanEmbarkation = function()
     {
         self.location='addembarkation.html?who='+as;
+        
+    }
+    app.editSeamanEmbarkation = function(race)
+    {
+        self.location='editembarkation.html?who='+as+'&race='+race;
     }
 
     selector = '#content';

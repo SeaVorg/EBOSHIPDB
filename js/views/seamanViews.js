@@ -68,6 +68,7 @@ app.seamanViews = (function() {
             
             $(selector).html(outHtml);
         }).then(function(){
+            if(app.setCountriesFunc==1) app.setPorts();
             //$(selector)[0].value=app.seamanRank;
         });
     }
@@ -174,8 +175,9 @@ app.seamanViews = (function() {
             $(selector1).html(outHtml);
             $(selector2).html(outHtml);
         }).then(function(){
+            if(app.setCountriesFunc==1) app.setCountries();
             app.updatePort1($(selector1).val());
-            app.updatePort2($(selector1).val());
+            app.updatePort2($(selector2).val());
         });
     }
 

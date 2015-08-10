@@ -308,6 +308,21 @@ app.seamanModel = (function() {
      
     }
 
+    SeamanModel.prototype.listAllSeamanRacesId = function(id, raceId)
+    {
+        console.log(" model, seaman races ");
+        var asd = '?where={ "objectId" : "'+raceId+'"}&limit=35770&skip=0&order=-Embarking_date';
+        console.log('111111111111111111111111111111111111');
+        console.log(asd);
+        return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
+     
+    }
+
+    SeamanModel.prototype.getPort = function(port)
+    {
+        return this.requester.get(this.portsUrl+'?where={"Port":"'+port+'"}&limit=999&skip=0', this.headers.getHeaders(true));
+    }
+
     return {
         load: function(baseUrl, requester, headers) {
             return new SeamanModel(baseUrl, requester, headers);
