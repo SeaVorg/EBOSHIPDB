@@ -5,7 +5,7 @@
         <th>Name</th>
         <th>Rank</th>
         <th>Nationality</th>
-        <th>Birthplace</th
+        <th>Birthplace</th>
         <th>Delete</th>
     </tr>
     {{#results}}
@@ -14,10 +14,15 @@
             <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/edit.png"></a>
         </td>
         <td>{{Name}}</td>
-        <td>{{Rank}}</td>
-        <td>{{Nationality}}</td>
+        <td id="lol{{objectId}}">{{Rank}}</td>
+        <td id="lo{{objectId}}">{{Nationality}}</td>
+        <script>
+        //id="lol{{objectId}}"
+        //id="lo{{objectId}}"
+        if(app.defaultRanks['{{Rank}}'])$("#lol{{objectId}}")[0].innerHTML=app.defaultRanks['{{Rank}}'];
+        if(app.defaultCountries['{{Nationality}}'])$("#lo{{objectId}}")[0].innerHTML=app.defaultCountries['{{Nationality}}'];
+        </script>
         <td>{{Birth_place}}</td>
-        <td><img src="./img/tick.png" id="theimg{{objectId}}"></td>
         <script>
        // var avail = {{Available}};
         //if(!avail)$("#theimg{{objectId}}")[0].src='./img/cross.png';

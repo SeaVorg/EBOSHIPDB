@@ -16,14 +16,16 @@
             <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/userpic.png"></a>
         </td>
         <td>{{Name}}</td>
-        <td>{{Rank}}</td>
+        <td id="lol{{objectId}}">{{Rank}}</td>
         <td>{{Disembarking_date}}</td>
-        <td>{{Nationality}}</td>
+        <td id="lo{{objectId}}">{{Nationality}}</td>
         <td>{{Birth_place}}</td>
         <td><img src="./img/tick.png" id="theimg{{objectId}}"></td>
-        <script>
-        var avail = {{Available}};
-        if(!avail)$("#theimg{{objectId}}")[0].src='./img/cross.png';
+       <script>
+        //id="lol{{objectId}}"
+        //id="lo{{objectId}}"
+        if(app.defaultRanks['{{Rank}}'])$("#lol{{objectId}}")[0].innerHTML=app.defaultRanks['{{Rank}}'];
+        if(app.defaultCountries['{{Nationality}}'])$("#lo{{objectId}}")[0].innerHTML=app.defaultCountries['{{Nationality}}'];
         </script>
         <td>
             <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>

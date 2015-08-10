@@ -20,11 +20,11 @@
             <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/edit.png"></a>
         </td>
         <td>{{Name}}</td>
-        <td>{{Rank}}</td>
+        <td id="lol{{objectId}}">{{Rank}}</td>
         <td>{{Ship}}</td>
         <td><input type='date' id='Embark_date{{objectId}}'></input></td>
         <td><input type='date' id='Disembark_date{{objectId}}'></input></td>
-        <td>{{Nationality}}</td>
+        <td id="lo{{objectId}}">{{Nationality}}</td>
         <td>{{Birth_place}}</td>
         <script>
         var date2 = new Date("{{#Embarking_date}}{{iso}}{{/Embarking_date}}");
@@ -53,6 +53,12 @@
         <td>
             <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
         </td>
+        <script>
+        //id="lol{{objectId}}"
+        //id="lo{{objectId}}"
+        if(app.defaultRanks['{{Rank}}'])$("#lol{{objectId}}")[0].innerHTML=app.defaultRanks['{{Rank}}'];
+        if(app.defaultCountries['{{Nationality}}'])$("#lo{{objectId}}")[0].innerHTML=app.defaultCountries['{{Nationality}}'];
+        </script>
     </tr>
     {{/results}}
 </table>
