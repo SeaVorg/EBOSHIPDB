@@ -61,6 +61,11 @@ app.seamanController = (function () {
         console.log("controller mofo called list all ships all");
         return this.model.listShipsAll()
             .then(function (data) {
+                var i;
+                for(i=0;i<data.results.length;i++)
+                {
+                    app.ShipCode[data.results[i].Ship]=data.results[i].Flag;
+                }
                 _this.viewBag.listShips.loadShipsViewAll(selector, data);
             }, function (error) {
                 app.error_msg(error.responseJSON.error);
@@ -1070,6 +1075,174 @@ app.seamanController = (function () {
                 app.savePort(data,stuff2);
                 //_this.viewBag.listSeamans.loadSeamansView(selector, data);
             });
+    };
+
+    //===========================================================
+    //===========================================================
+    //===========================================================
+    // CRA License code below
+    //===========================================================
+    //===========================================================
+    //===========================================================
+    SeamanController.prototype.listAllSeamansCrewCra = function (selector) {
+        var _this = this;
+        console.log("crew all seamans");
+        return this.model.listAllSeamansCrew()
+            .then(function (data) {
+                var ids = [];
+                var stuffs = [];
+                var stships = [];
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var stship = data.results[i].Ship;
+                        var dataKachvane = data.results[i].Embarking_date;
+                        ids.push(str);
+                        stuffs[str] = dataKachvane;
+                        stships[str] = stship;
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrew(ids).then(function(data5){
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
+                    }
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewCrewCra(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+    SeamanController.prototype.listAllSeamansNameCrewCra = function (selector, name) {
+        var _this = this;
+        console.log("crew all seamans");
+        return this.model.listAllSeamansCrewName(name)
+            .then(function (data) {
+                var ids = [];
+                var stuffs = [];
+                var stships = [];
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var stship = data.results[i].Ship;
+                        var dataKachvane = data.results[i].Embarking_date;
+                        ids.push(str);
+                        stuffs[str] = dataKachvane;
+                        stships[str] = stship;
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrew(ids).then(function(data5){
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
+                    }
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewCrewCra(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+    SeamanController.prototype.listAllSeamansNameCrewShipCra = function (selector, name, ship) {
+        var _this = this;
+        console.log("crew all seamans");
+        return this.model.listAllSeamansCrewNameShip(name,ship)
+            .then(function (data) {
+                var ids = [];
+                var stuffs = [];
+                var stships = [];
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var stship = data.results[i].Ship;
+                        var dataKachvane = data.results[i].Embarking_date;
+                        ids.push(str);
+                        stuffs[str] = dataKachvane;
+                        stships[str] = stship;
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrew(ids).then(function(data5){
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
+                    }
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewCrewCra(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
+    };
+    SeamanController.prototype.listAllSeamansCrewShipCra = function (selector, ship) {
+        var _this = this;
+        console.log("crew all seamans");
+        return this.model.listAllSeamansCrewShip(ship)
+            .then(function (data) {
+                var ids = [];
+                var stuffs = [];
+                var stships = [];
+                var i;
+                console.log(data.results.length);
+                for(i=0;i<data.results.length;i++)
+                {
+                        var str = data.results[i].SeamanID;
+                        var stship = data.results[i].Ship;
+                        var dataKachvane = data.results[i].Embarking_date;
+                        ids.push(str);
+                        stuffs[str] = dataKachvane;
+                        stships[str] = stship;
+                        //stuffs.push(dataKachvane)
+                        
+                }
+                //console.log(stuffs);
+                //console.log(stships);
+                //console.log(ids);
+                _this.model.listAllSeamansIdCrew(ids).then(function(data5){
+                    for(i=0;i<data5.results.length;i++)
+                    {
+                        data5.results[i].Embarking_date=stuffs[data5.results[i].SeamanID];
+                        data5.results[i].Ship=app.shipsNames[stships[data5.results[i].SeamanID]];
+                    }
+                    //console.log('read here');
+                    //console.log(data5);
+                    //console.log('stop reading');
+                    _this.viewBag.listSeamans.loadSeamansViewCrewCra(selector, data5);
+                });
+                //_this.viewBag.listSeamans.loadSeamansView(selector, data);
+            }, function (error) {
+                app.error_msg(error.responseJSON.error);
+            })
     };
 
     return {

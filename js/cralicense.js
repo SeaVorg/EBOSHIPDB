@@ -62,27 +62,42 @@ var app = app || {};
    
 
 
-    selector = '#ships';
-     seamanController.listShipsAll(selector);
+    
 
-    selector = '#content';
+    
 
     var as = app.getParam("who");
     var bz = app.getParam("ship");
     app.shipsNames=[];
+    app.ShipCode=[];
+    app.Flag = 'monchi';
+    app.shipstuff=1;
     console.log(as);
     console.log(bz);
     if(bz==null) bz='ALL';
     app.asz = as;
     app.bsz = bz;
-    
+
+    selector = '#ships';
+     seamanController.listShipsAll(selector).then(function(){
+        console.log('------------------------finished');
+        console.log(app.shipsNames);
+        console.log(app.ShipCode);
+        if(app.bsz!='ALL') {
+            app.Flag = app.ShipCode[app.bsz];
+            console.log('flag is ');
+            console.log(app.Flag);
+        }
+     });
+    selector = '#content';
+
     if(bz=='ALL'){
-    if(as!=null) seamanController.listAllSeamansNameCrew(selector, as);
-    else seamanController.listAllSeamansCrew(selector);
+    if(as!=null) seamanController.listAllSeamansNameCrewCra(selector, as);
+    else seamanController.listAllSeamansCrewCra(selector);
     }
     else{
-        if(as!=null) seamanController.listAllSeamansNameCrewShip(selector, as, bz);
-        else seamanController.listAllSeamansCrewShip(selector, bz);
+        if(as!=null) seamanController.listAllSeamansNameCrewShipCra(selector, as, bz);
+        else seamanController.listAllSeamansCrewShipCra(selector, bz);
     }
 
     
@@ -105,6 +120,7 @@ var app = app || {};
     app.addstuff = function(name, name2)
     {
         app.shipsNames[name]=name2;
+       
     }
 
     

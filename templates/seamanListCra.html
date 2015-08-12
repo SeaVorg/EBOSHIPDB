@@ -1,0 +1,67 @@
+
+<table id="results">
+    <tr>
+        <th>Save</th>
+        <th>Seaman</th>
+        <th>Name</th>
+        <th>Rank</th>
+        <th>Embarkation date</th>
+        <th>Nationality</th>
+        <th>Recruit agent</th>
+        <th>CRA License</th>
+        <th id='licenseThing'>License</th>
+        <th>Delete</th>
+    </tr>
+    {{#results}}
+    <tr>
+        <td><a href="#" class="link"><img src="./img/save.png"></a></td>
+        <td>
+            <a href="currseaman.html?who={{objectId}}" class="link"><img src="./img/userpic.png"></a>
+        </td>
+        <td>{{Name}}</td>
+        <td id="lol{{objectId}}">{{Rank}}</td>
+        <td><input type="date" id="Embark_date{{objectId}}"></input></td>
+        <script>
+        var date2 = new Date("{{#Embarking_date}}{{iso}}{{/Embarking_date}}");
+        console.log(date2);
+        console.log('#Embark_date{{objectId}}' + ' getting date set')
+        var date = date2.getDate();
+        if(date<10) date = "0"+date;
+        var month = (date2.getMonth()+1);
+        if(month<10) month="0" + month;
+
+        var datestring = date2.getFullYear()+"-"+month+"-"+date;
+        console.log(datestring);
+        $("#Embark_date{{objectId}}").val(datestring);
+        </script>
+        <td id="lo{{objectId}}">{{Nationality}}</td>
+        <td>{{Recruiting_agent}}</td>
+        <script>
+        //id="lol{{objectId}}"
+        //id="lo{{objectId}}"
+        if(app.defaultRanks['{{Rank}}'])$("#lol{{objectId}}")[0].innerHTML=app.defaultRanks['{{Rank}}'];
+        if(app.defaultCountries['{{Nationality}}'])$("#lo{{objectId}}")[0].innerHTML=app.defaultCountries['{{Nationality}}'];
+        </script>
+        <td>{{CRA_expiration}}</td>
+        <td id='license{{objectId}}'></td>
+        <script>
+        var asd ='momchi';
+        var bsd = 'momchi';
+        console.log('----------------------');
+        console.log(app.Flag);
+        if(app.Flag=='PA') asd='{{Panama_license_number}}';
+        if(app.Flag=='MT') asd='{{Malta_license_number}}';
+        if(app.Flag=='VC') asd='{{SVG_license_number}}';
+        if(app.Flag=='PA') bsd='Panama';
+        if(app.Flag=='MT') bsd='Malta';
+        if(app.Flag=='VC') bsd='SVG';
+        console.log(asd);
+        $('#license{{objectId}}')[0].innerHTML=asd;
+        $('#licenseThing')[0].innerHTML=bsd+' license';
+        </script>
+        <td>
+            <a href="javascript:app.deleteSeaman('{{objectId}}');" class="link" ><img src="./img/delete.png"></a>
+        </td>
+    </tr>
+    {{/results}}
+</table>
