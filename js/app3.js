@@ -61,7 +61,11 @@ var app = app || {};
    
 
     selector = '#container';
-    $('#SeamanID')[0].value = 13000;
+    app.newId=13000;
+    seamanController.getId().then(function(){
+        $('#SeamanID')[0].value = app.newId;
+    });
+    
 
 
      selector = '#ranks';

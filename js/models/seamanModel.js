@@ -323,6 +323,11 @@ app.seamanModel = (function() {
         return this.requester.get(this.portsUrl+'?where={"Port":"'+port+'"}&limit=999&skip=0', this.headers.getHeaders(true));
     }
 
+    SeamanModel.prototype.getId = function()
+    {
+        return this.requester.get(this.serviceUrl +'?order=-createdAt&limit=1',this.headers.getHeaders(true));
+    }
+
     return {
         load: function(baseUrl, requester, headers) {
             return new SeamanModel(baseUrl, requester, headers);

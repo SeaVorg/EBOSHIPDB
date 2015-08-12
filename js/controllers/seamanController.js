@@ -6,6 +6,16 @@ app.seamanController = (function () {
         this.viewBag = views;
     }
 
+    SeamanController.prototype.getId = function()
+    {
+        console.log("in get id");
+        return this.model.getId()
+            .then(function (data){
+                console.log('getID');
+                app.newId=data.results[0].SeamanID+1;
+            })
+    }
+
     SeamanController.prototype.loadAddSeamanView = function(selector) {
         //console.log("loading add seamans view");
         this.viewBag.addSeaman.addSeamanView(selector);
