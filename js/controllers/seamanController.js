@@ -61,10 +61,12 @@ app.seamanController = (function () {
         console.log("controller mofo called list all ships all");
         return this.model.listShipsAll()
             .then(function (data) {
+                if(app.shipstuff!=null){
                 var i;
                 for(i=0;i<data.results.length;i++)
                 {
                     app.ShipCode[data.results[i].Ship]=data.results[i].Flag;
+                }
                 }
                 _this.viewBag.listShips.loadShipsViewAll(selector, data);
             }, function (error) {
