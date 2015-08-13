@@ -12,7 +12,7 @@ app.seamanController = (function () {
         return this.model.getId()
             .then(function (data){
                 console.log('getID');
-                app.newId=data.results[0].SeamanID+1;
+                app.newId=parseInt(data.results[0].SeamanID)+1;
             })
     }
 
