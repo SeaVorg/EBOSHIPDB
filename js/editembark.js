@@ -83,7 +83,7 @@ var app = app || {};
             Embarked: $("#embarked"+id).prop('checked'),
             Disembarking_date: d2,
             Disembarked: $("#disembarked"+id).prop('checked'),
-            General_notes: $("#Notes"+id).val()
+            General_Notes: $("#Notes"+id).val()
         };
         console.log(data);
 
@@ -193,7 +193,7 @@ var app = app || {};
         }
         if(app.race.Embarked!=null)$('#Embarked').prop('checked',app.race.Embarked);
         if(app.race.Disembarked!=null)$('#Disembarked').prop('checked',app.race.Disembarked);
-        if(app.race.General_notes!=null) $('#Notes').val(app.race.General_notes);
+        if(app.race.General_Notes!=null) $('#Notes').val(app.race.General_Notes);
     }
 
     app.funct1 = function()
@@ -242,7 +242,7 @@ var app = app || {};
                     Disembarking_date : d2,
                     Embarking_port : $('#Start_port').val(),
                     Disembarking_port : $('#End_port').val(),
-                    General_notes : $('#Notes').val()
+                    General_Notes : $('#Notes').val()
                     
                 };
                 console.log(data);

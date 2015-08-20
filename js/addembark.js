@@ -83,7 +83,7 @@ var app = app || {};
             Embarked: $("#embarked"+id).prop('checked'),
             Disembarking_date: d2,
             Disembarked: $("#disembarked"+id).prop('checked'),
-            General_notes: $("#Notes"+id).val()
+            General_Notes: $("#Notes"+id).val()
         };
         console.log(data);
 
@@ -171,7 +171,7 @@ var app = app || {};
                    //Disembarking_date : d2,
                     Embarking_port : $('#Start_port').val(),
                     //Disembarking_port : $('#End_port').val(),
-                    General_notes : $('#Notes').val()
+                    General_Notes : $('#Notes').val()
                     
                 };
                 console.log(data);

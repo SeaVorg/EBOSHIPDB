@@ -303,7 +303,7 @@ app.seamanModel = (function() {
     SeamanModel.prototype.listAllSeamanRaces = function(id)
     {
         console.log(" model, seaman races ");
-        var asd = '?where={"SeamanID": "'+id+'" }&limit=35770&skip=0&order=-Embarking_date';
+        var asd = '?where={"SeamanID": '+id+' }&limit=35770&skip=0&order=-Embarking_date';
         return this.requester.get(this.embarksUrl + asd , this.headers.getHeaders(true));
      
     }
