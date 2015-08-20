@@ -203,6 +203,81 @@ app.seamanViews = (function() {
     function loadSeamansViewCrew (selector, data) {
         console.log("in load seaman view crew");
         $.get('templates/seamanListCrew.html', function (template) {
+            console.log("0000000000000000000000 hax");
+            var i;
+            var j;
+            var count=0;
+            var r = 'MASTER';
+            var ranks = [];
+            ranks[1] ='MASTER';
+            ranks[2] ='CHOFF';
+            ranks[3] ='2NDOFF';
+            ranks[4] ='3RDOFF';
+            ranks[5] ='CHENG';
+            ranks[6] ='1STENG';
+            ranks[7] ='2NDENG';
+            ranks[8] ='3RDENG';
+            ranks[9] ='ELENG';
+            ranks[10]='ELECTR';
+            ranks[11]='BOSUN';
+            ranks[12]='AB';
+            ranks[13]='OILER';
+            ranks[14]='DFITT';
+            ranks[15]='EFITT';
+            ranks[16]='DECBOY';
+            ranks[17]='DBOY';
+            ranks[18]='COOK';
+            ranks[19]='XTRAFITT';
+            ranks[20]='XTRA2NDOFF';
+            ranks[21]='XTRA2NDENG';
+            ranks[22]='FITTER';
+            ranks[23]='TRUCKF';
+            ranks[24]='ASSENG';
+            ranks[25]='ASELEC';
+            ranks[26]='MOTMAN';
+            ranks[27]='MESMAN';
+            ranks[28]='DCADETT';
+            ranks[29]='ECADETT';
+            ranks[30]='RO';
+            ranks[31]='OS';
+            ranks[32]='STWD';
+            ranks[33]='WIPER';
+            ranks[34]='WIFE';
+            ranks[35]='CHILD';
+            ranks[36]='TECNIC';
+            console.log('-----------------');
+            for(i=0;i<data.results.length;i++)
+            {
+                data.results[i].Rank=data.results[i].Rank.trim();
+                console.log(data.results[i].Rank);
+            }
+            console.log('-----------------');
+
+            for(j=1;j<36;j++)
+            {
+
+            r = ranks[j];
+            for(i=0;i<data.results.length;i++)
+            {
+                if(data.results[i].Rank==r)
+                {
+                    var t = data.results[count];
+                    data.results[count]=data.results[i];
+                    data.results[i]=t;
+                    count++;
+                }
+            }
+
+            }
+
+            console.log('-----------------');
+            for(i=0;i<data.results.length;i++)
+            {
+                console.log(data.results[i].Rank);
+            }
+            console.log('-----------------');
+            
+
             var outHtml = Mustache.render(template, data);
             $(selector).html(outHtml);
         });
