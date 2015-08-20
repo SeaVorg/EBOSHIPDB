@@ -5,8 +5,8 @@ app.seamanModel = (function() {
         this.serviceUrl = baseUrl + 'classes/Seaman/';
         this.ranksUrl = baseUrl + 'classes/Ranks/';
         this.shipsUrl = baseUrl + 'classes/Ships/';
-        this.embarksUrl = baseUrl + 'classes/Embarkation/';
-        this.embarkUrl = baseUrl + 'classes/Embarkation/';
+        this.embarksUrl = baseUrl + 'classes/Embarkations/';
+        this.embarkUrl = baseUrl + 'classes/Embarkations/';
         this.portsUrl = baseUrl + 'classes/Ports/';
         this.countriesUrl = baseUrl + 'classes/Countries/';
         this.requester = requester;
@@ -119,7 +119,7 @@ app.seamanModel = (function() {
         //console.log(ids.toString());
         var shit = '[';
         var i;
-        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+=ids[i]; }
             shit+=']';
             console.log(shit);
         //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
@@ -133,7 +133,7 @@ app.seamanModel = (function() {
         //console.log(ids.toString());
         var shit = '[';
         var i;
-        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+=ids[i]; }
             shit+=']';
             console.log(shit);
         //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
@@ -147,7 +147,7 @@ app.seamanModel = (function() {
         //console.log(ids.toString());
         var shit = '[';
         var i;
-        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+=ids[i]; }
             shit+=']';
             console.log(shit);
         //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
@@ -161,7 +161,7 @@ app.seamanModel = (function() {
         //console.log(ids.toString());
         var shit = '[';
         var i;
-        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+=ids[i]; }
             shit+=']';
             console.log(shit);
         //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
@@ -176,7 +176,7 @@ app.seamanModel = (function() {
         //console.log(ids.toString());
         var shit = '[';
         var i;
-        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+=ids[i]; }
             shit+=']';
             console.log(shit);
         //console.log('?where={"SeamanID": {"$in":' + shit + '}}');
@@ -189,7 +189,7 @@ app.seamanModel = (function() {
         console.log("in modelasz cust");
         var shit = '[';
         var i;
-        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+='"'+ids[i]+'"'; }
+        for(i=0;i<ids.length;i++) {if(i!=0) shit+=','; shit+=ids[i]; }
             shit+=']';
             console.log(shit);
         //console.log('?where={"SeamanID": {"$in":' + shit + '}}');

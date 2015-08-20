@@ -44,7 +44,7 @@ int main()
             //date = month + "/" + day +"/" + year;
             if(day.size()==1) day="0"+day;
             if(month.size()==1) month="0"+month;
-            date = year + "-" + month + "-" + day +"T12:30:00.000Z";
+            date = year + "-" + day + "-" + month +"T12:30:00.000Z";
             out<<e<<" {" <<endl;
             out<<"                \"__type\": \"Date\","<<endl;
             out<<"                \"iso\": \""<< date <<"\"" <<endl;
@@ -74,7 +74,7 @@ int main()
             //date = month + "/" + day +"/" + year;
             if(day.size()==1) day="0"+day;
             if(month.size()==1) month="0"+month;
-            date = year + "-" + month + "-" + day +"T12:30:00.000Z";
+            date = year + "-" + day + "-" + month +"T12:30:00.000Z";
             out<<d<<" {" <<endl;
             out<<"                \"__type\": \"Date\","<<endl;
             out<<"                \"iso\": \""<< date <<"\"" <<endl;
