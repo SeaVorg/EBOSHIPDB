@@ -13,6 +13,7 @@ app.seamanController = (function () {
             .then(function (data){
                 console.log('getID');
                 app.newId=parseInt(data.results[0].SeamanID)+1;
+                console.log(app.newId);
             })
     }
 

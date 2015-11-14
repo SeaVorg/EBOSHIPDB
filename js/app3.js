@@ -81,7 +81,7 @@ var app = app || {};
             $('#addSeamanButton').click(function() {
                 //console.log("in add ");
                 var data = {
-                    SeamanID : $('#SeamanID').val(),
+                    SeamanID : app.newId,
                     Name : $('#Name').val(),
                     Birth_date : $('#Birth_date').val(),
                     Birth_place : $('#Birth_place').val(),
